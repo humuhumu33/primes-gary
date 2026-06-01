@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5756060-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-5756060-3');
+</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="index, follow"/>
+	<meta name="author" content="Gary William Croft"/>
+    <meta name="description" content="Prime Number Counting Methodologies"/>
+    <meta name="keywords" content="prime number, prime counting, factorization"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Prime Number Counting Methodology</title>
+	<base target="_blank">
+</head>
+<body style="background-color:#F2F2F2">
+<div style="text-align: center; font-family: Merriweather, Arial, Helvetica, Georgia, Tahoma, verdana; font-size:1.3em; margin:0px 11% 0px 11%;">
+   <h1>Prime Number Counting Methodology</h1>
+	<p><img src="Counting_Primes_Header_Graphic.jpg" height=256 width=225 alt="Counting Primes header"/></p>
+	<p>This work is licensed by its author, Gary William Croft, under a <br><a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">Creative 
+	Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+	<h3>Return to www.primesdemystified.com <a href="https://www.primesdemystified.com">Home Page</a></h3></div>
+	<hr><hr>
+	<div style="text-align: left; font-family: Merriweather, Arial, Helvetica; font-size:1.3em; line-height: 35px; margin:0px 11% 0px 11%;">
+	<h2>Prime Counting &#960;(x) </h2>
+	<p>(Note: Several cumulative sum and indexing formulae are referenced below. For easy reference, we've compiled them on a dedicated page: <strong><a href="https://www.primesdemystified.com/formulae.html">Cumulative Sum and Indexing Formulae</a></strong>).</p>
+	<p>As we detailed in our discussion of <a href="https://primesdemystified.com/#Factorization.html">factorization and sieving methods</a>, all composite numbers within the domain of counting numbers not divisible by 2, 3 or 5 can be accounted for algorithmically. We also demonstrated how the number of factorization computations, per se, within specified parameters (from 1 to n) can be given with perfect precision. We conjectured, therefore, that upon 'running the numbers' the remaining balance would be a count of primes exclusively (leaving one last step; adding 3 primes to our total to account for 2, 3, and 5, excluded from our domain by definition).</p>
+	<p>Our logic proved sound ... so far as it went. What we didn't anticipate was how difficult it is to formulate (rather than mechanically determine) the parsing of <em>Replicant Factorizations</em> (RF's), i.e., those with identical products but dissimilar factor dyads. For example, of the 105 modulo 30 wheel factorizations that identify (index) all composite numbers in the 0 to 1000 range, we found 5 replicants, namely:</p>
+	<p style="margin:0px 5% 0px 5%;">
+	&#9830;&#160; 539 = &#160; 7 x 77 = 11 x 49<br>
+	&#9830;&#160;  637 = &#160; 7 x 91 = 13 x 49<br>
+	&#9830;&#160;   833 = 7 x 119 = 17 x 49<br>
+	&#9830;&#160;   847 = 7 x 121 = 11 x 77<br>
+	&#9830;&#160;  931 = 7 x 133 = 19 x 49</p>
+	<p>We get a clearer understanding of the sequencing of our five 'replicants' when we express them as prime factorizations:</p>
+	<p style="margin:0px 5% 0px 5%;">
+	&#9830;&#160; 7<sup>2</sup> x 11 = 539<br>
+	&#9830;&#160; 7<sup>2</sup> x 13 = 637<br>
+	&#9830;&#160; 7<sup>2</sup> x 17 = 833<br>
+	&#9830;&#160; 7<sup>2</sup> x 19 = 931<br>
+	&#9830;&#160; 11<sup>2</sup> x 7 = 847</p>
+	<p>For now we can state that, although Replicant Factorizations can be easily explained, quantifying them formulaically remains a daunting challenge given we're seeking exactitude, not "error approximation."</p>
+	<p>That being said, using our method as it currently stands (i.e., wanting a better RF counting method) what follows are steps to calculate the number of primes within three arbitrarily chosen ranges, and a fourth example chosen literally at random (throwing a dart at a printed page containing several hundred prime numbers):</p>
+	<p>[Note: &#960;(n) is the standard notation indicating the count of prime numbers between 1 and n (where the pi symbol, notoriously misappropriated, is the 'prime counting function'), thus:</p>
+	<p style="margin:0px 5% 0px 5%;">
+	&#960;(10,000) = 1229<br>
+	&#960;(1,000) = 168<br>
+	&#960;(89<sup>2</sup>) = 1000<br>
+	&#960;(2099) = 317.]</p>
+	<h3>Example 1: &#960;(10,000) = 1229</h3>
+	<ol style="list-style-type:decimal">
+	<li>First, calculate the number of natural numbers from 1 to 10,000 not divisible by 2, 3, or 5, i.e., n  &#8780; {1, 7, 11, 13, 17, 19, 23, 29} modulo 30. Since 8 out of every 30 natural numbers {1, 2, 3, ...} fall under this modular set, we multiply the highest number less than 10,000 that is n &#8780; {1, 7, 11, 13, 17, 19, 23 or 29} modulo 30 (in this case 9,997) times 8/30, or .2666 (8/30 being the ratio of numbers not divisible by 2, 3, or 5 to natural numbers 1, 2, 3, ...). In this example, therefore, 9,997 x 8/30 = &lfloor;2665&rfloor; (floor brackets signify whole number part taken). This simple formula thus calculates the <em>span</em> (1 - n) of our factorization viz. prime number counting domain.</p>
+	<p>The steps that follow will identify the number of composite numbers to subtract by a counter-intuitive process of elimination until we've reduced 2665 down to the point where only prime numbers remain.</li>
+	<li>Given that the square root of 9,997 is 99.98, we know that we need to perform chord factorizations from 7chord to 97chord to identify composite numbers in our range less than or equal to 9,997 (reference "The 8-Chord Progression," <a href="#8-chordprogression">above</a>). Doing so will index all composite numbers in this range (as distinct from numbers divisible by 2, 3 and 5, already removed in the previous step).</li>
+	<li>We then count the number of composite generating calculations required to complete step 2. This gives us 1847 (keeping in mind that this number includes 408 RF's, the counting of which is illustrated below). (To open an Excel spreadsheet showing in detail how this number is derived, <a href="Factorization_10000.xls">click here</a>.) (And below we offer a formulaic alternative to this manual counting routine.).</li>
+	<li>Next we sum and subtract Redundant Factorizations from the total number of factorization calculations generated in step 3 above. In our designated range (1 thru 9,997), we find that there are 408 such duplications. Subtracting these from the total number of factorizations (1847 minus 408) gives us 1439. To open an Excel spreadsheet listing the duplicates and their sums, <a href="DupeAnalysis.xls">click here</a>.</li>
+	<li>Next, we subtract the result in step 4 (1439) from the result in step 1 (2665), i.e., 2665 minus 1439 = 1226.</li>
+	<li>Lastly, we must circle back and add 3 to our total to account for primes 2, 3 and 5, which by definition were excluded from our factorization domain. And, voila!, this brings us to 1226 plus 3 = 1229, the <em>exact</em> number of primes among the first 10,000 natural numbers.</ol>
+	<p>Earlier we alluded to the method we've invented to eliminate the need for manual counting of the algorithmically generated factorizations described in Step 3. This simplified formulation, which could form the basis of a function, is magical in that it incrementally trues the delta difference between the actual and calculated sums in perfect stair-step fashion: 0, 1, 2, 3, ... 24, additively summing to 300. This 0, 1, 2, 3, ... n cumulative summation in the form n(n+1)/2 occurs with electrifying regularity no matter the highest n of a defined range, as the examples below demonstrate. [Note: Below (directly following the graphic illustrating this example) we describe a more direct alternative approach that eliminates the need for this n(n+1)/2 delta truing.]</p>
+	<p>Before diving into our example, however, its instructive to expose the powerful role played by the <em>ratio of numbers not divisible by 2, 3, or 5 to natural numbers 1, 2, 3, ... </em>or 8/30 = .2666 ... and its inverse, 30/8 = 3.75, demonstrated by the equations that follow.</p>
+	<p>For starters, we offer two approaches to calculating the index numbers, n 1, 2, 3, ..., of numbers not divisible by 2, 3, or 5. The first method is expedient, but if you're a purist it has the downside of producing results with fractional parts, namely:</p>
+	<p style="margin:0px 5% 0px 5%;"><strong>n &#8780;  {1, 7, 11, 13, 17, 19, 23, 29} modulo 30:<br>
+	k = n * 8/30 + 1 = natural numbers &lfloor;1, 2, 3, ...&rfloor;  &lfloor;whole number part taken&rfloor;</strong>.<br>
+	For example, 89 * 8/30 + 1 = 24.7333 (or 24, when whole number part taken). And 89 is indeed the 24th member of our domain. By comparison, the 'precise' equation for any n &#8780; {29} modulo 30, which includes number 89, is k = (n + 1) * 8/30; and thus (89 + 1) * 8/30 = 24. More about the latter equation, member of an octad, follows.</p>
+	<p>The second approach is more laborious, but produces precise whole number results. The 8-fold conversion equations, parsed by modulo 30 congruence, are listed in the left-hand column of the table below. The equations in the right-hand column produce cumulative sums from 1 to a given n not divisible by 2, 3, or 5. To demonstrate how these equations interrelate, we follow with an example employing the cumulative sum from 1 to 7919 (the 1000th prime number) in relation to its index number:</p>
+	<p><img src="Cum_Sum_n_not_div_235.jpg" height=1004 width=650 alt="Cumulative sum n not divisible by 2, 3, or 5, ... and conversion"/></p>
+	<p>Formulae to generate the inverse of the above, i.e., input (n) = counting numbers 1, 2, 3, ... and output (k) = n not divisible by 2, 3, or 5, are shown below:</p>
+	<p style="margin:0px 5% 0px 5%;"><strong>k = n * 30/8 {-2.75, -0.50, -0.25, -2.00, -1,75, -3.50, -3.25, -1.00} {repeat ...} <br>= n &#8780;  {1, 7, 11, 13, 17, 19, 23, 29} modulo 30</strong>.</p>
+	<p>Parsing the inputs by their modulo 8 congruence allows us to input index numbers individually to determine a specific number's output. The 8 negative adjustments per cycle form 4 bilateral pairs summing to 3.75, and 4 * 3.75 = 15. [Note that the ratio of n 1,2,3,... to n not divisible by 2, 3, or 5 converges ascendantly to 30/8 = 3.75. For example 89/24 (24 being 89's index number, and thus the ratio's denominator) = 3.708333... while 7919/2112 (2112 = 7919's index number) = 3.74952651515..., etc. Reverse the ratio and the series converges descendently to 8/30 = .2666...].
+	<p style="margin:0px 5% 0px 5%;">
+	n &#8780; {1} mod 8: k = n * 30/8 &minus; 2.75 = n &#8780;  &nbsp;{1} &nbsp;mod 30<br>
+	n &#8780; {2} mod 8: k = n * 30/8 &minus; 0.50 = n &#8780;  &nbsp;{7} &nbsp;mod 30<br>
+	n &#8780; {3} mod 8: k = n * 30/8 &minus; 0.25 = n &#8780;  {11} mod 30<br>
+	n &#8780; {4} mod 8: k = n * 30/8 &minus; 2.00 = n &#8780;  {13} mod 30<br>
+	n &#8780; {5} mod 8: k = n * 30/8 &minus; 1.75 = n &#8780;  {17} mod 30<br>
+	n &#8780; {6} mod 8: k = n * 30/8 &minus; 3.50 = n &#8780;  {19} mod 30<br>
+	n &#8780; {7} mod 8: k = n * 30/8 &minus; 3.25 = n &#8780;  {23} mod 30<br>
+	n &#8780; {0} mod 8: k = n * 30/8 &minus; 1.00 = n &#8780;  {29} mod 30</p>
+	<p>Here are the first 24 outputs of the stair-stepping formula:</p>
+	<p style="margin:0px 5% 0px 5%;">
+	k = 1 * 30/8 &minus; 2.75 = &nbsp; <strong>1</strong><br>
+	k = 2 * 30/8 &minus; 0.50 = &nbsp; <strong>7</strong><br>
+	k = 3 * 30/8 &minus; 0.25 = <strong>11</strong><br>
+	k = 4 * 30/8 &minus; 2.00 = <strong>13</strong><br><br>
+	k = 5 * 30/8 &minus; 1.75 = <strong>17</strong><br>
+	k = 6 * 30/8 &minus; 3.50 = <strong>19</strong><br>
+	k = 7 * 30/8 &minus; 3.25 = <strong>23</strong><br>
+	k = 8 * 30/8 &minus; 1.00 = <strong>29</strong><br><br>
+	k = &nbsp; 9 * 30/8 &minus; 2.75 = <strong>31</strong><br>
+	k = 10 * 30/8 &minus; 0.50 = <strong>37</strong><br>
+	k = 11 * 30/8 &minus; 0.25 = <strong>41</strong><br>
+	k = 12 * 30/8 &minus; 2.00 = <strong>43</strong><br><br>
+	k = 13 * 30/8 &minus; 1.75 = <strong>47</strong><br>
+	k = 14 * 30/8 &minus; 3.50 = <strong>49</strong><br>
+	k = 15 * 30/8 &minus; 3.25 = <strong>53</strong><br>
+	k = 16 * 30/8 &minus; 1.00 = <strong>59</strong><br><br>
+	k = 17 * 30/8 &minus; 2.75 = <strong>61</strong><br>
+	k = 18 * 30/8 &minus; 0.50 = <strong>67</strong><br>
+	k = 19 * 30/8 &minus; 0.25 = <strong>71</strong><br>
+	k = 20 * 30/8 &minus; 2.00 = <strong>73</strong><br><br>
+	k = 21 * 30/8 &minus; 1.75 = <strong>77</strong><br>
+	k = 22 * 30/8 &minus; 3.50 = <strong>79</strong><br>
+	k = 23 * 30/8 &minus; 3.25 = <strong>83</strong><br>
+	k = 24 * 30/8 &minus; 1.00 = <strong>89</strong></p>
+	<p>Getting back to our example (counting primes from 0 &rarr; 10,000), when you subtract the sum of the cumulative corrections (300, in this case) from the total number of calculations (2147 minus 300) you get 1847, perfectly matching the <em>actual</em> count. [Note the taking of whole number parts (Columns C and E) and the downward adjustment (when necessary) of Column C results to n &#8780;  {1, 7, 11, 13, 17, 19, 23 or 29} modulo 30; the result posted under Column D.]:</p>
+	<p><img src="Factorization_Computation_Method_Zero_to_10000.jpg" height=1000 width=550 alt="Factorization Computation Count Method for Primes Less than 10000"/><br>
+	<strong>* Note</strong>: Columns C & E: Whole Number Part Taken<br>
+	<img src="Factorization_Computation_Zero_to_10000_Summary.jpg" height=467 width=700 alt="Factorization Computation Count Method Summary for Primes Less than 10000"/></p>
+	<p>Above we noted the discovery of an alternative to the additive factorization sum 'truing' equating to n(n+1)/2, namely:<strong> E &#8722; (A * 8/30 &#8722; 2) =  &lfloor;F&rfloor;</strong> = Actual Number of Factorizations &lfloor;whole number part taken&rfloor;, as follows:</p>
+	<p style="margin:0px 5% 0px 5%;">
+	<strong> &nbsp;&nbsp;&nbsp;E &#8722; &nbsp;&nbsp;(A * 8/30 &#8722; 2) = &nbsp; &lfloor;F&rfloor;</strong><br>
+	380 &#8722;&nbsp;&nbsp; (7 * 8/30 &#8211; 2) = &lfloor;380&rfloor;<br>
+	241 &#8722; (11 * 8/30 &#8211; 2) = &lfloor;240&rfloor;<br>
+	205 &#8722; (13 * 8/30 &#8211; 2) = &lfloor;203&rfloor;<br>
+	156 &#8722; (17 * 8/30 &#8211; 2) = &lfloor;153&rfloor;<br>
+	139 &#8722; (19 * 8/30 &#8211; 2) = &lfloor;135&rfloor;<br>
+	115 &#8722; (23 * 8/30 &#8211; 2) = &lfloor;110&rfloor;<br>
+	&nbsp; 91 &#8722; (29 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;78&rfloor;<br>
+	&nbsp; 85 &#8722; (31 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;85&rfloor;<br>
+	&nbsp; 71 &#8722; (37 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;63&rfloor;<br>
+	&nbsp; 64 &#8722; (41 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;55&rfloor;<br>
+	&nbsp; 61 &#8722; (43 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;51&rfloor;<br>
+	&nbsp; 56 &#8722; (47 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;45&rfloor;<br>
+	&nbsp; 54 &#8722; (49 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;42&rfloor;<br>
+	&nbsp; 49 &#8722; (53 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;36&rfloor;<br>
+	&nbsp; 45 &#8722; (59 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;31&rfloor;<br>
+	&nbsp; 43 &#8722; (61 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;28&rfloor;<br>
+	&nbsp; 39 &#8722; (67 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;23&rfloor;<br>
+	&nbsp; 37 &#8722; (71 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;20&rfloor;<br>
+	&nbsp; 35 &#8722; (73 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;17&rfloor;<br>
+	&nbsp; 33 &#8722; (77 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;14&rfloor;<br>
+	&nbsp; 32 &#8722; (79 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;12&rfloor;<br>
+	&nbsp; 31 &#8722; (83 * 8/30 &#8211; 2) =&nbsp;&nbsp; &lfloor;10&rfloor;<br>
+	&nbsp; 29 &#8722; (89 * 8/30 &#8211; 2) =&nbsp;&nbsp; &nbsp;&nbsp;&lfloor;7&rfloor;<br>
+	&nbsp; 29 &#8722; (91 * 8/30 &#8211; 2) =&nbsp;&nbsp; &nbsp;&nbsp;&lfloor;6&rfloor;<br>
+	&nbsp; 27 &#8722; (97 * 8/30 &#8211; 2) =&nbsp;&nbsp; &nbsp;&nbsp;&lfloor;3&rfloor;</p>
+	<p>The Total equals 1847, the exact count of factorizations within this domain between 1 and 10,000 when generated by the modulo 30 algorithms discussed earlier.</p>
+	<p>Before leaving this example, it's instructive to study the patterns generated by the replicant factorizations within this range. Below is a screen shot from a spreadsheet that color codes the 408 replicant factorizations between 1 and 10,000, revealing their straight-line sequencing, extending both vertically and horizontally. (This is a sample: For the entire spreadsheet, click here: <a href="Factorization_Computation_Method_Zero_to_10000.xlsx">Replicant Factorization Patterns</a>; tab labeled "Factorization Inventory").</p>
+	<p><img src="Replicant_Factorization_Patterns_Graphic_1-10000.jpg" height=650 width=1000 alt="Replicant Factorization Patternization 0 to 10,000"/></p>
+	<p>From the spreadsheet linked above, parsing and tiering the distribution of Replicant Factorizations by their modulo 30 vertical alignment gives us the following counts:</p>
+	<p><img src="Replicant_Factorization_Parsing_1-10000.jpg" height=286 width=1000 alt="Replicant Factorization Parsing Counts 0 to 10,000"/></p>
+	<h3>Example 2: &#960;(1,000) = 168</h3>
+	<p><img src="Factorization_Computation_Method_Zero_to_1000.jpg" height=600 width=550 alt="Factorization Count Methodology for Primes Less than 1000"/><br>
+	<strong>* Note</strong>: Columns C & E: Whole Number Part Taken<br>
+	<img src="Factorization_Computation_Zero_to_1000_Summary.jpg" height=467 width=700 alt="Factorization Count Methodology Summary for Primes Less than 1000"/></p>
+	<h3>Example 3: &#960;(89<sup>2</sup>) = 1000</h3>
+	<p>As we've noted several places on this site, there are <em>exactly</em> 1000 prime numbers between 1 and 89<sup>2</sup>, i.e., between 1 and 7921. In fact, so profound are the structures related specifically to the distribution of the first 1000 prime numbers that we've devoted <a href="https://www.primesdemystified.com/First1000Primes.html">an entire section</a> to them that leads to a stunning revalation: The first 1000 primes are 'entombed' in what we've dubbed the "One Grand Pyramid" aka "Tomb of the First 1000 Primes."</p>
+	<p>Regardless, here are the steps that get us to 1000:</p>
+	<ol style="list-style-type:decimal">
+	<li>Calculate population of the modulo 30 defined domain (see step 1 of the 1st example), thus: 7921 x 8/30 = 2112 (taking the whole number part). [Note: given 7921 is congruent to {1} modulo 30, and is therefore a member of our domain, we've pegged it as the highest number in our range.]</li>
+	<li>Take the square root of 7921 (which is 89) to determine the high end of our range of chordal factorizations for counting purposes.</li>
+	<li>Count number of sequenced factorization calculations (7 thru 89): 1396.</li>
+	<li>Count and subtract number of duplicate calculations to produce net number: 1396 minus 281 = 1115.</li>
+	<li>Subract 1115 from the domain population determined in step 1: 2112 minus 1115 = 997.</li>
+	<li>Add 3 to account for primes 2, 3, and 5: 997 plus 3 = 1000, the <em>exact</em> number of primes between 1 and 89<sup>2</sup>!</ol>
+	<p>Consistent with the less than 1000 and less than 10000 factorization counting function, we can take the same approach with 89<sup>2</sup>:
+	<p><img src="Factorization_Computation_Method_Zero_to_7921.jpg" height=1000 width=550 alt="Factorization Count Methodology for Primes Less than 89 Squared"/><br>
+	<strong>* Note</strong>: Columns C & E: Whole Number Part Taken<br>
+	<img src="Factorization_Computation_Zero_to_7921_Summary.jpg" height=467 width=700 alt="Factorization Count Methodology for Primes Less than 89 Squared Summary"/></p>
+	<p>Here's an equation related to &#960;(89<sup>2</sup>) = 1000 that brings to mind the clich&eacute;, "There's no such thing as a coincidence:"</p>
+	<p style="margin:0px 5% 0px 5%;"><strong>1396 (total number of factorization computations; see above) &minus; (109<sup>2</sup> &minus; 89<sup>2</sup>)/10 = 1000.</strong></p>
+	<p>Primes 109 and 89 both have the Fibonnaci sequence encoded in the decimal expansion of their reciprocals.</p>
+	<p>Here's a link to an Excel.xlsx spreadsheet with three tabs containing data supporting the counts in the "Primes Less than 89 Squared" Summary above: 1) <strong>Actual Factorization Counts</strong>; 2) <strong>Calculated Counts</strong>; 3) <strong>Replicant Analysis</strong>: <a href="89_Squared_First_1000_Primes.xlsx">89 Squared and the First 1000 Prime Numbers</a>.</p>
+	<h3>Example 4: &#960;(2099) = 317</h3>
+	<p><img src="Factorization_Computation_Method_Zero_to_2099.jpg" height=800 width=550 alt="Factorization Count Methodology for Primes from 0 to 2099"/><br>
+	<strong>* Note</strong>: Columns C & E: Whole Number Part Taken<br>
+	<img src="Factorization_Computation_Method_Zero_to_2099_Summary.jpg" height=462 width=800 alt="Factorization Count Methodology for Primes from 0 to 2099 Summary"/></p>
+	<p>Examining the 29 Replicant Factorizations distributed between zero to 2099 unambiguously reveals their genesis. The question remains how to parse them formulaically.</p>
+	<p><img src="Replicant_Factorization_Study_Zero_to_2099.jpg" height=450 width=800 alt="Replicant Factorization Study Zero to 2099"/></p>
+	<hr><hr>
+	<h3>Return to www.primesdemystified.com <a href="https://www.primesdemystified.com">Home Page</a></h3>
+		<span id="cdSiteSeal2"><script src="//tracedseals.starfieldtech.com/siteseal/get?scriptId=cdSiteSeal2&amp;cdSealType=Seal2&amp;sealId=55e4ye7y7mb73944551ad196abeb3kekn3ay7mb7355e4ye756bbcb5f81d5af04"></script></span></div></div></div>
+	<script src="https://cdn.ywxi.net/js/1.js" async></script>
+  </body>
+</html>

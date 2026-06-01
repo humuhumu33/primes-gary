@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5756060-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-5756060-3');
+</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  	<meta name="msvalidate.01" content="D29B2D9298CF5FA27B34091C7DC720CD" />
+	<meta name="robots" content="index, follow"/>
+    <meta name="description" content="Prime Spiral Sieve's Deep Symmetries Illuminate Prime Number Sequence"/>
+	<meta name="keywords" content="prime numbers, prime number, primes, factorization, prime spiral sieve, prime spiral, twin primes"/>
+	<meta name="application-name" content="Prime Numbers Demystified by 8-Dimensional Algorithms"/>
+	<meta name="msapplication-TileColor" content="#58595B"/> 
+	<meta name="msapplication-TileImage" content="30802d38-8bf4-4404-946c-77e0128129ec.png"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Prime Numbers Demystified by 8-Dimensional Algorithms</title>
+ <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel='stylesheet' href='sitemap-css/sitemap.css'>
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>document.documentElement.className += 'js';</script>
+</head>  
+<body style="background-color:#F2F2F2">
+<div style= "margin:0px 15% 0px 15%;">
+<div style="text-align: center; font-family: Merriweather, Helvetica, Georgia, Tahoma, cambria, verdana; font-size:1.3em;">
+  <hr>
+  <div class="topnav">
+  <a href="#introduction">Introduction</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#foundations">Foundations</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#deepsymmetries">Symmetries</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.primesdemystified.com/Factorization.html">Factorization</a><br>
+  <a href="https://www.primesdemystified.com/twinprimes.html">Twin Primes</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.primesdemystified.com/thirty.html">The Number 30</a>&nbsp;&nbsp;&nbsp;&nbsp;
+   <a href="#countingprimes">Counting Primes</a>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+   <a href="#primingthesquares">Perfect Squares</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://www.primesdemystified.com/formulae.html">Formulae</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://www.primesdemystified.com/First1000Primes.html">1st 1000 Primes</a>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+   <a href="https://www.primesdemystified.com/magicmatrix.html">Magic Mirror Matrix</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#alphatoomega">From Alpha to Omega</a>&nbsp;&nbsp;&nbsp;&nbsp;
+   <a href="https://www.primesdemystified.com/abouttheoriginator.html">About the Author</a>
+	<hr>
+	<h1>The Prime Spiral Sieve</h1>
+	<h2>Radial Geometry and Chordal Algorithms <br>Demystify the Prime Number Sequence</h2>
+	<p><img src="Primes_Demystified_Header.jpg" height=175 width=175 alt="Primesdemystified Header"/></p>
+	<div style="font-size:14pt;">
+	<p>"My general view of mathematics is that most of the complicated things we learn have their origins in very simple examples and phenomena." &#8211; Dr. Richard Evan Schwartz, Chancellor's Professor of Mathematics, Brown University</p>
+	 <p>"Deep and satisfying mathematics can arise from simple beginnings." &#8211; Vicky Neale, PhD, Additive Number Theory
+	 <p>"Everything should be made as simple as possible, but not simpler." &#8211; Albert Einstein</p>
+	 <p>"Simplicity is the ultimate sophistication." &#8211; Leonardo Da Vinci</p>
+	 <p>"Seek simplicity and distrust it." &#8211; Alfred North Whitehead</p>
+	 <p><a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" 
+	src="https://licensebuttons.net/l/by-sa/3.0/88x31.png" /></a></p>
+	<p>This work is licensed by its author, Gary William Croft, under a Creative Commons Attribution-ShareAlike 3.0 Unported License</p></div></div></div></div>
+	<div style="text-align: left; font-family: Merriweather, Georgia, Arial, Helvetica, Tahoma, cambria, verdana; font-size:1.3em; line-height: 35px; margin:0px 12% 0px 12%;">
+	<hr><hr>
+	<section id="introduction"><h3>Introduction</h3></section>
+	<p>Prime numbers have been deemed <em>mysterious</em> for more than three millennia. Any claim to have demystified them, as the title of this work boldly declares, will justifiably be met with skepticism. Regardless, deciphering  how primes distribute in literal, mathematical terms <em>deepens</em> the mystery when you consider the profoundly beautiful <a href="https://junilearning.com/blog/guide/what-are-algorithms/">algorithms</a> and rotating symmetry groups that govern where on the number line these <em>atoms of the number universe</em> fall.</p>
+	<p>We explore these patterns in great depth with a powerful analytical tool: a <a href="https://en.wikipedia.org/wiki/Deterministic_algorithm" target="_blank">deterministic algorithm</a> and ever-expanding geometry in the form of a <a href="https://en.wikipedia.org/wiki/Sieve_theory" target="_blank">spiral sieve</a>  (the 'Prime Spiral Sieve'). It's Archimedean orbits encompass eight arithmetic progressions that double as multiplicative initiators of geometrically expanding period-24 factorization cycles. These deterministic sequences intertwine like an octal helix and ultimately determine the distribution of all prime numbers greater than 5, i.e., starting with 7.</p>
+	<p>We will also demonstrate how the Prime Spiral Sieve can geometrically shapeshift into a <a href="https://primesdemystified.com/First1000Primes.html">rectangular matrix, 4-sided pyramid, or continuous triangular wave</a>.</p>
+	<p style="margin:0px 5% 0px 5%;"><img src="Spiral_Matrix_Pyramid_Wave.jpg" height=258 width=800 alt="Prime Spiral Sieve Configurations"/>
+	<p>And we will show how the first three primes, 2, 3, and 5&#8211;although excluded from our factorization domain by definition&#8211;are nonetheless omnipresent in the form of <em>structure</em> serving to contain and direct the aforementioned factorization algorithms.</p>
+	<p>One might call what follows 'primal math' in that its modular arithmetic is revealed to be deeply <em>rooted</em> in the most deceptively primitive mathematics of all&#8211;digit sum and digital root arithmetic (and especially the Vedic Square that originated in ancient India). This methodology combining congruence relations with digital root cycles exposes palindromes and complex polygons that illuminate our understanding of how prime numbers are formed.</p>
+	<p>The patterns in question are revealed in hybrid period-24 digital root &harr; modulo 90 congruence matrices found in our section devoted to <a href="https://www.primesdemystified.com/Factorization.html" target="_blank">Factorization</a> and in a paper by the undersigned titled "From Vedic Square to the Digital Root Clockworks of Modulo 90 Factorization" published in the September, 2018 edition of the online <a href="https://www.vedicmaths.org/images/PDFs/VM_Journal/Vedic_Square_-Factorization_Dyads.pdf" target="_blank"><em>International Journal of Vedic Mathematics</em></a> (Note: link opens .pdf).</p>
+	<p>To date this site has attracted more than 106,157 "absolute unique visitors" (Google Analytics speak) from 11,124 cities and towns representing every country on Earth. Scores have returned repeatedly, and not one has offered counter-examples. Commenting on <a href="https://www.linkedin.com/groups/4531430/4531430-6374129056203575300" target="_blank">LinkedIn.com</a>, a NASA data scientist said of this work: It "is truly a well thought out labor of mathematical thought." From a hermeneutic perspective, the patterns explored herein speak eloquently for themselves ... <em>Res ipsa loquitur ...</em></p> 
+	<hr>
+	<p>Eighteen of the sequences discussed on this site have been published by the author on the <em>On-Line Encyclopedia of Integer Sequences</em>. Here's a link to them: <a href="https://oeis.org/search?q=Gary%20Croft&start=10">OEIS Listings for Gary W. Croft</a></p>
+	<p>Also, an <a href="https://pypi.python.org/pypi/pyprimes/0.1.1a#downloads" target="_blank">M.I.T. licensed (Python) Prime Factorization Tool</a> compared seven non-probabilistic (aka deterministic) prime number sieving algorithms, and the programmer deemed the Croft Spiral (aka Prime Spiral Sieve) the 'fastest and most efficient' of those tested. Quoting the programmer, "The <a href="https://mail.python.org/pipermail/tutor/2011-December/087209.html" target="_blank">fastest method</a>, Croft, is over 1000 times faster than the slowest."</p>
+	<img src="Algorithm_Speed_Program_Results.jpg" height=567 width=600 alt="Prime factorization algorithm speed test results"/>
+	<p>The 'Croft Spiral Sieve' algorithm is listed under <em>Python</em> at Rosetta Code's site devoted to  <a href="https://rosettacode.org/wiki/Prime_decomposition" target="_blank">"Prime Decomposition"</a> and can also be found posted on the University of Massachusetts Boston, College of Science and Mathematics (Department of Computer Science) server, via this link (which opens a .pdf):
+	<a href="https://www.cs.umb.edu/~eb/480/factoring/croft.pdf" target="_blank">https://www.cs.umb.edu/~eb/480/factoring/croft.pdf</a>. 
+	<p>Further validation comes from Fredrick Michael, PhD (Director Experfy Institute / Harvard Innovation Laboratories), who utilized this site's period-24 model of primes and composites in a study of statistics and modular arithmetic of prime numbers. An abstract of the referenced study can be found at <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2706936" target="_blank">Notes on Prime Numbers, Their Numerical Statistics & Patterns I: Modular Arithmetic and the Eight Fold Period 24 Model</a>. The period-24 patterns in question, relating to modulo 90 factorization algorithms and the digital root dyad cycles generated by twin primes, are discussed at length on our page devoted to them: <a href="https://www.primesdemystified.com/Factorization.html" target="_blank">Factorization and prime number sieving algorithms and geometries.</a>.</p>
+	<hr>
+	<p ><strong>The sequence populating the Prime Spiral Sieve (pictured below) can be variously defined as</strong>:</p>
+	<p style="margin:0px 5% 0px 5%;">&#9830;&#160; Natural numbers coprime to 30, i.e., not divisible by 2, 3 or 5. And given no prime number > 5 is divisible by 2, 3 or 5, it's axiomatic that our factorization domain contains all prime numbers > 5, starting with 7 (the number 1 being "silent")... and their multiplicative multiples, beginning with 7 x 7 = 49, the first composite number in the sequence. It follows that all members of our domain are relatively prime (aka coprime or mutually prime) to 2, 3 and 5.</p>
+	<p style="margin:0px 5% 0px 5%;">&#9830;&#160; Natural numbers &#8780; {1, 7, 11, 13, 17, 19, 23, 29} modulo 30, which parse into 8 arithmetic progressions, each with a common difference of 30 between consecutive terms.</p>
+	<p style="margin:0px 5% 0px 5%;">&#9830;&#160; Group U(30) = {1, 7, 11, 13, 17, 19, 23, 29} of positive integers smaller than and relatively prime to 30 with multiplication modulo 30.</p>
+	<p style="margin:0px 5% 0px 5%;">&#9830;&#160; 1 {+6 + 4 + 2 + 4 + 2 + 4 + 6 + 2} {repeat ... &#8734;}.</p>
+	<p style="margin:0px 5% 0px 5%;">&#9830;&#160;  30n+1, 30n+7, 30n+11, 30n+13, 30n+17, 30n+19, 30n+23, 30n+29.</p>
+	<p style="margin:0px 5% 0px 5%;">&#9830;&#160;  Natural numbers modulo 30 that distribute to the following 8 angles:</p>
+	<p style="margin:0px 5% 0px 5%;">&#160; &#160; 12&deg; ... 84&deg; ... 132&deg; ... 156&deg; ... 204&deg; ... 228&deg; ... 276&deg; ... 348&deg;.</p>
+	<p style="margin:0px 5% 0px 5%;">&#9830;&#160;  All odd numbers with digital root of 1, 2, 4, 5, 7 or 8 <em>and</em> final digit of 1, 3, 7 or 9, the first 8 of which are 1, 7, 11, 13, 17, 19, 23, 29.</p>
+	<p>[Note: Throughout this site you'll find references to various cumulative sum and indexing formulae. For convenience, we've created a page dedicated to them: <strong>	<a href="https://www.primesdemystified.com/formulae.html">Cumulative Sum and Indexing Formulae</a></strong>.]</p>
+	<p>It's important to emphasize that the beautiful symmetries encountered within this factorization domain, both numeric and geometric, are largely a consequence of patterns rooted in its <strong>period-24 digital root</strong>, which has the following repetition cycle:</p><p style="margin:0px 0% 0px 5%;"><strong>{1, 7, 2, 4, 8, 1, 5, 2, 4, 1, 5, 7, 2, 4, 8, 5, 7, 4, 8, 1, 5, 7, 2, 8} {repeat ...}. </strong></p>
+	<p>This 24-beat cycle is equivalent to three rotations around the Prime Spiral Sieve. The first 24 members of our domain and their digital roots, therefore, are especially important given they set the <em>initial conditions</em> for all that follows. To emphasize this period-8 / mod 30 telescopic stretch to period-24 / modulo 90, we occasionally group this sequence as:</p>
+	<p style="margin:0px 0% 0px 5%;"><strong>n &#8780; {1, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 49, 53, 59, 61, 67, 71, 73, 77, 79, 83, 89} modulo 90.</strong></p>
+	<p>The modulo 90, period-24 digital root repetition cycle of our domain allows us to sieve and sequence by digital root (dr), as listed below (and documented by the author on the <em>On-Line Encyclopedia of Integer Sequences</em>):
+	<p style="margin:0px 0% 0px 5%;">
+	<strong>dr 1 = n &#8780; {1, 19, 37, 73} mod 90: 1{+18+18+36+18} {repeat ...} </strong><a href="https://oeis.org/A301617" target="_blank">(oeis.org/A301617)</a><br>
+	<strong>dr 2 = n &#8780; {11, 29, 47, 83} mod 90: 11{+18+18+36+18} {repeat ...} </strong><a href="https://oeis.org/A301621" target="_blank">(oeis.org/A301621)</a><br>
+	<strong>dr 4 = n &#8780; {13, 31, 49, 67} mod 90: 13{+18+18+18+36} {repeat ...} </strong><a href="https://oeis.org/A301622" target="_blank">(oeis.org/A301622)</a><br>
+	<strong>dr 5 = n &#8780; {23, 41, 59, 77} mod 90: 23{+18+18+18+36} {repeat ...} </strong><a href="https://oeis.org/A301623" target="_blank">(oeis.org/A301623)</a><br>
+	<strong>dr 7 = n &#8780; {7, 43, 61, 79} mod 90: 7{+36+18+18+18} {repeat ...} </strong><a href="https://oeis.org/A301628" target="_blank">(oeis.org/A301628)</a><br>
+	<strong>dr 8 = n &#8780; {17, 53, 71, 89} mod 90: 17{+36+18+18+18} {repeat ...} </strong><a href="https://oeis.org/A295869" target="_blank">(oeis.org/A295869)</a></p>
+	<p>When the modulo 90 matrix listed above is color-coded to highlight its 12 lateral 90-sums (12 x 90 = 1080 = 360 x 3), perfect symmetry is exposed:</p>
+	<p><img src="Prime_Digital_Root_Mod90_Congruency_Matrix.jpg" height=500 width=400 alt="Prime number digital root congruence matrix"/></p>
+	<p>In our section devoted to <a href="https://www.primesdemystified.com/twinprimes.html">twin primes</a> we demonstrate how to configure the above table to sieve and/or sequence twin prime candidates by digital root dyads.</p>
+	<p>[Note: The easiest and fastest way to determine modulo 90 congruence of a whole number is to reduce all digits antecedant to the number's terminating digit to their digital root. For example, the 1st three digits of 2497 reduce to digital root 6 leaving 67 which equates to 2497 &#8780; {67} mod 90. Keep in mind that 9's count as zero when calculating digital root. This is sometimes called 'casting out 9's.']</p>
+	<p>Below is a picture of the Prime Spiral Sieve showing rotations spanning numbers 1 thru 259 of the infinite sequence populating the sieve, as defined above:</p>
+	<p><img src="PrimeSpiralSieve.jpg" height=756 width=700 alt="Prime Number Spiral Sieve"/></p>
+	<p>Hidden deep within this sieve, a radical spin on <a href="https://en.wikipedia.org/wiki/Wheel_factorization" target="_blank">modulo 30 wheel factorization</a>, are mysteriously beautiful symmetries and geometries, profound in their implications. This sieve not only forms the basis of an extremely efficient and widely used prime number sieving algorithm of the 'non-probabilistic' kind (which we provided links to, above), but it demonstrates how prime numbers are distributed within a radial geometry that effectively defragments the 
+	<a href="https://en.wikipedia.org/wiki/Ulam_spiral" target="_blank">Ulam Spiral</a> and ultimately leads us to the <em>Theory of Everything</em>. </p>
+	<p>This domain, once fathomed, reveals itself to be a beautiful mathematical object. It can be conceived as both an infinite spiral and&#8211;when matrix factorized at the digital root level&#8211;an ever-expanding 4-sided pyramid structured by palindromic sequences. Regardless, the real power of this geometry becomes evident when we triple it dimensionally and explore modulo 90 factorization symmetries at the digital root level, culminating in the <a href="magicmatrix.html">Magic Mirror Matrix</a>, a calculatory geometry that serves as a  prime factorization sequencer accounting for the first 1000 prime numbers, <em>exactly</em>, and ultimately all prime numbers > 5.</p>
+	<p>Most profoundly, we'll discover how the eight spiraling factorization algorithms, i.e., the multiplicative multiples of the domain's sequence starting with 7<sup>2</sup> that ultimately account for <em>every</em> composite number within the Prime Spiral Sieve's orbits, are structured by rotational symmetry groups in the shape of equilateral triangles ( {1,4,7} {2,5,8} {3,6,9} ). We'll demonstrate how these can be configured to form 3 x 3 matrices which in turn extrapolate into beautiful complex polygons. 
+	<hr>
+	<p>Only elementary arithmetic and geometry are required to understand what you find on this site. This minimal requirement is reflected by Mazur and Stein in <em>Prime Numbers and the Riemann Hypothesis</em>: "It is striking how little you actually have to know in order to appreciate the revelations offered by numerical exploration."</p>
+	<hr><hr>
+	<section id="foundations"><h3>Foundations</h3></section>
+	<p style="margin:0px 8% 0px 8%; font-size:14pt;">"[S]urprisingly, playing with arithmetic can lead us to unexpected and profound discoveries that point toward deeper mathematics and sometimes even deeper science." &#8211; Pradeep Mutalik, PhD., "The Puzzling Power of Simple Arithmetic," <em>Quanta</em>, April 20, 2021.</p>
+	<p>The genesis of most if not all repeating prime number patterns described in the mathematics literature, e.g., Twin Primes, Cullen Primes, 
+	Chen Primes, Sexy Primes, Cousin Primes, Sophie Germain Primes, Siamese Primes, Cunningham Chains ... the list goes on and on ... can be readily deciphered using the Prime Spiral Sieve as an analytical tool employing <a href="https://en.wikipedia.org/wiki/Modular_arithmetic" target="_blank">modular arithmetic</a> (and specifically, modulo 30 relationships). Here are two examples supporting this claim, i.e. using this sieve to analyze and predict <a href="siameseprimes.html" target="_blank">Siamese Primes</a> (n<sup>2</sup> -2 and n<sup>2</sup> +2 are primes) and 
+	<a href="sophiegermainprimes.html" target="_blank">Sophie Germain Primes</a> (p and 2p+1 are primes), keeping in mind that these will make more 
+	sense after you've read what follows.</p>
+	<p>The most obvious of these repeating prime patterns are the three <a href="twinprimes.html" target="_blank">Twin Prime Distribution Channels</a>, described at length on this site. These and all other such repeating&#8211;albeit intermittent and seemingly random&#8211;patterns are fundamentally sub-patterns of the set of natural numbers not divisible by 2, 3 or 5 when arrayed in 8 dimensions, whether in a matrix or spiral form. The illusion of randomness results from the overlapping sequences of the eight algorithmic 
+	"chord progressions" that factorize the domain. We will be discussing these progressions when we get to 
+	<a href="https://www.primesdemystified.com/Factorization.html" target="_blank">prime factorization</a>.</p>
+	<p>The first rotation of the sieve, comprised of 8 members, (1, 7, 11, 13, 17, 19, 23 and 29), is the deterministic key to everything that follows. These are the first 8 counting numbers not divisible by 2, 3 or 5, a sequence which by definition includes (and <em>only</em> includes) 1 and all primes &#8805; 7 and their multiplicative multiples (and, as you'll see below, it's conjectured that the entire set can be generated by a simple expression involving 2, 3 and 5). The inference of this conjecture is that <em>all</em> prime numbers greater than 5, i.e., starting with 7, can be produced by this expression.</p>
+	<p>[Note: Given our domain is limited to numbers &#8780; {1,7,11,13,17,19,23,29} modulo 30, only &#981;(m)/m = 8/30 or 26.66% of natural numbers N = {0, 1, 2, 3, ...} need be sieved. For example, to illustrate the proportionality of this ratio, we find that 25% of the first 100 natural numbers are prime, while 72% of numbers not divisible by 2, 3, or 5 are prime (and, curiously, if we count 2, 3, and 5 in after the fact, we get 75%, or exactly 3 x 25%). Also note that if you plug the number 30 into <a href="https://en.wikipedia.org/wiki/Euler%27s_totient_function" target="_blank">Euler's totient function</a>, phi(n): phi(30)= 8, with the 8 integers (known as <a href="https://mathworld.wolfram.com/Totative.html" target="_blank">totatives</a>) smaller than and having no factors in common with 30  being: 1, 7, 11, 13, 17, 19, 23 and 29, i.e., what are called "prime roots" above. Thirty is the largest integer with this property.]</p>
+	<p>The integer <strong>30</strong>, product of the first three prime numbers (2, 3 and 5), and thus a primorial, plays a powerful role organizing the array's perfect symmetry, viz., in the case of the 8 prime roots:</p>
+	<p><strong>1+29=30; 7+23=30; 11+19=30;</strong> and <strong>13+17=30.</strong></p>
+	<p>In <em>The Number Mysteries</em> well-known mathematician Marcus Du Sautoy writes: "In the world of mathematics, the numbers 2, 3, and 5 are like hydrogen, helium, and lithium. That's what makes them the most important numbers in mathematics." Although 2, 3 and 5 are the only prime numbers not included in the domain under discussion, they are nonetheless integral to it: First of all, they sieve out roughly 73% of all natural numbers, leaving only those nominally necessary to construct a geometry within which prime numbers can be optimally arrayed. The remaining 26.66% (to be a bit more precise) constituting the array can be constructed with an elegantly simple interchangeable expression (or power series, if you prefer) that incorporates the first three primes. It's conjectured that this manifold series ultimately consists of <strong>all</strong> (<em>and only</em>) the numbers not divisible by 2, 3, or 5 (and their negatives), which inclues all prime numbers >5 (more below under the heading "Conjectures and Facts Relating to the Prime Spiral Sieve").</p>
+	<p>What is critical to understand, is that the invisible hand of 2, 3 and 5, and their factorial 30, create the <em>structure</em> within which the balance of the prime numbers, i.e., all those greater than 5, are arrayed algorithmically&#8211;as we shall demonstrate. Primes 2, 3 and 5 play out in modulo 30-60-90 cycles (decomposing to {3,6,9} sequencing at the digital root level). Once the role of 2, 3 and 5 is properly understood, all else falls beautifully into place.</p>
+	<hr><hr>
+	<section id="deepsymmetries"><h3>Deep Symmetries</h3></section>
+	<p style="margin:0px 5% 0px 5%; font-size:14pt;">"Physicists have exalted symmetry to the position of <em>the</em> central concept in their attempts to organize and explain an otherwise bewildering and complex universe." Mario Livio, <em>The Equation that Couldn't Be Solved: How Mathematical Genius Discovered the Language of Symmetry</em></p>
+	<p>The Prime Spiral Sieve possesses remarkable structural and numeric symmetries. For starters, the intervals between the prime roots (and every subsequent row or rotation of the sieve) are perfectly balanced, with a period 8 difference sequence of: <a href="https://oeis.org/A145011" target="_blank">{6, 4, 2, 4, 2, 4, 6, 2}</a>. The entire domain can thus be defined as <strong>1 {+6 +4 +2 +4 +2 +4 +6 +2} {repeat ... &#8734;}</strong>. As we've already suggested, the number 30 figures large in our modulo 30 domain. The Prime Spiral Sieve is Archimedean in that the separation distance between turns equals 30, ad infinitum. The first two rotations increment as follows:</p>
+	<p><img src="RootPrimeSymmetry.jpg" height=300 width=600 alt="Root Prime Symmetry Involving 30's"/></p>
+	<p>Interestingly, the sum of the 2nd rotation = 360, the product of the first three primorials, 2 x 6 x 30 = 360, and when you multiply the first five <a href="https://en.wikipedia.org/wiki/Fibonacci_number" target="_blank">Fibonacci numbers</a> in sequence, you produce 1, 2, 6 and 30? And, speaking of the Fibonacci number sequence, there is symmetry mirroring the above in the relationship between the terminating digits of Fibonacci numbers and their index numbers equating to members of the array populating the Prime Spiral Sieve:</p>
+	<p><img src="FiboSymmetry.jpg" height=347 width=700 alt="Fibonacci Terminating Digit Symmetry"/></p>
+	<p>Remarkably, the sequence of Fibonacci terminating digits indexed to our domain (natural numbers not divisible by 2, 3 or 5), 
+	<a href="https://primes.utm.edu/curios/page.php?number_id=11020" target="_blank">13,937,179</a> (see graphic, above), is a prime number and a member of a twin prime pair (with 13,937,177). In case you're wondering, 13,937,179 is not a reversible prime (as the reversal is a semi-prime: 9,461 x 10,271 = 97,173,931). However, given all the <a href="https://en.wikipedia.org/wiki/Repunit" target="_blank">repunits</a> that follow, we take note that both of the reversal's factors are congruent to 11 (mod 30 & 90). [Note: Repunits are abbreviated R<sub>n</sub>, where n designates the number of unit 1's. Thus 1 is R<sub>1</sub> and 11 is R<sub>2</sub>.]</p>
+	<p>Perhaps most remarkable of all, 13,937,179 when added to its reversal 97,173,931 = 111,111,110 (in strict digital root terms, the sum is 11,111,111, or R<sub>8</sub>) and the entire repeating (and palindromic) Fibo sequence end-to-end (equivalent to two rotations around the sieve) gives you this palindromic equivalency: 1,393,717,997,173,931 &#8780; 11,111,111 (mod 111,111,110)... (and interestingly, 11,111,111 * 111,111,110 = 123456776543210).</p>
+	<p>Another point of interest: the terminating digits of the first 8 Fibonacci numbers indexed to our domain (13937179) contain two each 1's, 3's, 7's, and 9's. This is also true of the terminating digits of the first eight members of our domain (17137939).</p>
+	<p>Echoing the Fibonacci patterns just described, the terminating digits of the <em>prime roots</em> (17,137,939), when added to <em>their</em> 
+	reversal (93,973,171) = 111,111,110. [And note that 111,111,111 * 111,111,110 = 12345678876543210.].</p>
+	<p>Yet another related dimension of symmetry: The terminating digits of the prime root 
+	<em>angles</em> (24,264,868; see illustration of <a href="#primespiralsieve" target="_blank">Prime Spiral Sieve</a>) when added to <em>their</em> 
+	reversal (86,846,242) = 111,111,110, not to mention this sequence possesses symmetries that dovetail perfectly with the prime root and 
+	Fibo sequences.</p>
+	<p>And when you combine the terminating digit symmetries described above, capturing three rotations around the sieve in their actual 
+	sequences, you produce the ultimate combinatorial symmetry:</p>
+	<p><img src="Fibo_CSS_Angle_TDs.jpg" height=395 width=900 alt="Terminating Digit Symmetries"/></p>
+	<p>Here's yet another fascinating dimension of symmetry: the pattern of 9's created by decomposing and summing either the digits of 
+	Fibonacci numbers indexed to the first two rotations of the spiral (a palindromic pattern {1393717997173931} that repeats every 16 Fibo 
+	index numbers) or, similarly, decomposing and summing the prime root angles. The decomposition works as follows (in digit sum arithmetic 
+	this would be termed summing to the digital root): F<sub>17</sub> (the 17th Fibonacci number) = 1597 = 1 + 5 + 9 + 7 = 22 = 2 + 2 = 4:</p>
+	<p><img src="FiboDigitSumSymmetry.jpg" height=381 width=900 alt="Fibonacci and Prime Root Angle Terminating Digit Symmetries"/></p>
+	<p>Another dimension of symmetry involves the terminating digits of the prime roots and their angles: 
+	those paired with like terminating digits being separated by 120&deg;: 1(12&deg;) and 11(132&deg;) ... 13(156&deg;) 
+	and 23(276&deg;) ... 7(84&deg;) and 17(204&deg;) ... 19(228&deg;) and 29(348&deg;). Another consideration with 
+	regard to terminating digits, is that one can easily construct, by combining all numbers with the same 
+	terminating digits, a four-fold arithmetic progression in increments of +10 and +20, starting with 
+	1, 7, 13 and 19. Thus, combining 1(12&deg;) and 11(132&deg;) gives us: 1, 11, 31, 41, 61, 71, 91, [+10+20] ... n; 
+	combining 7(84&deg;) and 17(204&deg;) gives us 7, 17, 37, 47, 67, 77, 97, [+10+20] ... n; 
+	combining 13(156&deg;) and 23(276&deg;) gives us 13, 23, 43, 53, 73, 83, 103, [+10+20] ... n; and, 
+	combining 19(228&deg;) and 29(348&deg;) gives us 19, 29, 49, 59, 79, 89, 109, [+10+20] ...n. Looking at the array in 
+	this configuration, however, has borne no fruit.</p>
+	<p>As fascinating as the symmetries examined above may be, they are but a prelude to the beautiful patterns 
+	we'll explore when we discuss <a href="Factorization.html" target="_blank">digital root sequencing</a> and the 
+	<a href="Factorization.html" target="_blank">Trinity of Triangles and Magic Squares</a> rooted in Vedic Arithmetic that drive factorization 
+	algorithms within this domain. And, finally, if you want to jump ahead and view the perfect palindromic symmetry found at the heart of factorization, check out the <a href="magicmatrix.html">Magic Mirror Matrix</a> that maps factorizatons at the digital root 
+	level and accounts for the first 1000 prime numbers&#8211;exactly.</p>
+	<hr><hr>
+	<section id="primespiralsieve"><h3>The Prime Spiral Sieve</h3></section>
+	<p>Around the perimeter of the spiral sieve (pictured below) you'll note that the 8 radii are labeled in relation to their modulo 30 
+	prime roots, i.e., 1(12&deg;); 7(84&deg;); 11(132&deg;); 13(156&deg;); 17(204&deg;); 19(228&deg;); 23(276&deg;) and 29(348&deg;). 
+	These relate to the fact that the circle is segmented into 30 equal sectors or radii separated by 12&deg; (30*12&deg;=360&deg;), 
+	although only the eight radials that are the focus of this study are shown.</p>
+	<p><img src="PrimeSpiralSieveSmall.jpg" height=600 width=600 alt="Prime Spiral Sieve"/></p>
+	<p>This sieve exposes the twin primes, aligning as they do along three distinct <em>distribution channels</em>. One obvious 
+	implication, is that those numbers in the array congruent to {7} modulo 30 (radial angle 84&deg;) and {23} modulo 30 (radial angle 276&deg;) 
+	can be excluded as twin prime candidates (and, by definition, all prime numbers distributed along these two diagonals. with the 
+	exception of 7, which is twinned with 5, will be what are known as "<a href="https://en.wikipedia.org/wiki/Isolated_prime#Isolated_prime" target="_blank">isolated primes</a>"). 
+	Later we explain how twin prime candidates can be segregated from all other positive integers and be partitioned into three 
+	columnar sets covertly aligned by the first three prime numbers (encoded in angles).</p>
+	<hr><hr>
+	<h3>Conjectures and Facts Relating to the Prime Spiral Sieve</h3>
+	<p>The array is rooted in the first three prime numbers: 2, 3 and 5 and their product, 30, the 3rd primorial. This array reveals that 
+	the first three primes play a very special role in creating the symmetrical geometries that align the distribution of all 
+	subsequent prime numbers, thus distinguishing them from all other primes. Primes 2, 3 and 5 are like 8-legged spiders assigned 
+	to spin the beautiful spiraling web in which the remaining prime numbers are arrayed along assigned threads. (For a detailed listing of Number 30's attributes, plus reference links click here:	<a href="thirty.html" target="_blank">The Number 30</a>).</p>
+	<p>It is conjectured that all (and only) the numbers in this array (and their negatives) can be derived using the 
+	interchangeable expression incorporating the first three prime numbers, 2, 3 and 5, where x=2, y=3 and z=5. 
+	Thus: <b> x<sup>n</sup>y<sup>n</sup> &plusmn; z<sup>n</sup></b>, <b> x<sup>n</sup>z<sup>n</sup> &plusmn; y<sup>n</sup></b>
+	and <b>y<sup>n</sup>z<sup>n</sup> &plusmn; x<sup>n</sup></b>. For example: 2 * 3 + 5 = 11 ...   2<sup>3</sup> * 5 - 3<sup>3</sup> = 13 ...   
+	3<sup>2</sup> * 5 + 2 = 47 ... 	 5<sup>2</sup> * 3 - 2 = 73. This expression, therefore, potentially generates all numbers not divisible 
+	by its three terms, 2, 3 and 5, including all prime numbers >5. [Note: For any given number in the array, there are multiple&#8211;and 
+	possibly an infinite number of&#8211;solutions. For example, the number 11 can be expressed as xy+z = 11, 
+	x<sup>2</sup>y<sup>2</sup>-z<sup>2</sup> = 11, z<sup>2</sup>y-x<sup>6</sup> = 11, etc.]. More examples, below:</p>
+	<p><img src="xyzExamples.jpg" height=808 width=400 alt="2,3,5 in combo = n not div 2, 3, or 5"/></p>
+	<p>All prime numbers (with the exception of 2, 3 and 5) are distributed along 8 diagonals in intervals of 30, starting with
+	"prime roots": 1, 7, 11, 13, 17, 19, 23 and 29 (thus: 1...31...61...91...n; 7...37...67...97...n; etc.).</p>
+	<p>The products of <em>any</em> combination of factors in the array = a number in the array, e.g., 
+	7*11 = 77;  7*11*13 = 1001; etc. Conversely, all factors for composite numbers in the array can be found in the array.</p>
+	<p>Every composite number in our modulo 30 domain can be derived from the product of two terms in the domain multiplied together, and these multipliers need not necessarily be prime themselves. For example, 5831, which is congruent to 11, modulo 30, and therefore in the array, is the product of 49 x 119 = 5831. In this example, neither 49 (7 x 7) nor 119 (7 x 17) are prime, though both are members of the array.</p>
+	<p>The sum of <em>any</em> sequential odd number of addends in the array = a number in the array, e.g., 
+	1+7+11 = 19;  1+7+11+13+17 = 49; etc.</p>
+	<p>Because the digital roots of all prime root angles are either 3 or 6, any prime root angle times another will produce 
+	a product whose digital root = 9, e.g., PR7 (84&deg;) x PR29 (348&deg;) = 84 x 348 = 29232 = dr(9).</p>
+	<p>Any number in the array x 30 + 1 = a number in the array.</p>
+	<p>The sum of the angles for 2(24&deg;), 3(36&deg;) and 5(60&deg;) = 120&deg;, and the sum of the prime roots 	
+	(1+7+11+13+17+19+23+29) also = 120. This is because the prime roots are an arithmetic anagram for the angles
+	of the first three primes, thus: 11+13 = 24; 17+19 = 36; and 1+7+23+29 = 60. The sum of the second 
+	rotation = 360 ... 3(2[24&deg;] + 3[36&deg;] + 5[60&deg;]) = 30[360&deg;]</p>
+	<p>The array reveals beautifully symmetrical relationships:<br /><br />
+	&nbsp; &nbsp; &nbsp; &nbsp; 1[12&deg;] + 29[348&deg;] = 30[360&deg;] <br /> 
+	&nbsp; &nbsp; &nbsp; &nbsp; 7[84&deg;] + 23[276&deg;] = 30[360&deg;] <br />
+	&nbsp; &nbsp; 11[132&deg;] + 19[228&deg;] = 30[360&deg;] <br />
+	&nbsp; &nbsp; 13[156&deg;] + 17[204&deg;] = 30[360&deg;] </p>
+	<p>Mod 30 of all numbers in this array (and thus all primes other than 2, 3 and 5) must be 1, 7, 11, 13, 17, 19, 23 
+	or 29.</p>
+	<p>The sum of the digital root sums of the prime roots (1, 7, 11, 13, 17, 19, 23, 29) = 1+7+2+4+8+1+5+2 = 30.</p>
+	<p>This sieve reveals why all primes >5 are adjacent to a multiple of six, as the prime root radii are adjacent to 6(72&deg;);
+	12(144&deg;); 18(216&deg;); 24(288&deg;); and 30(360&deg;). [And you'll note that the digital root sums of all adjacent angles equal 9.]</p>
+	<p>The modulo 90 congruence of any member of this domain can be determined by digital root and terminating digit configured in an xy matrix: arrayed by digital root {1, 2, 4, 5, 7, 8} on the vertical axis and by terminating digits {1, 3, 7, 9} on the horizontal axis. Take, for example, number 179 (which happens to be prime): Its digital root = 8 and its terminating digit = 9. Looking at the table below, we can quickly determine that 179 is congruent to 89 modulo 90.</p>
+	<p>By definition prime factors for all composite numbers within this domain must originate from within it, which is why all composite numbers are reducible to one or more modulo 90 'congruence dyads' traceable to the first 24 members of this domain:</p>
+	<p><img src="Modulo_90_Congruency_Matrix.jpg" height=550 width=642 alt="Modulo 90 congruence determined by digital root and terminating digit"/></p>
+	<hr><hr>
+	<section id="factorization"><h3>Factorization and Sieving Methods Employing the Prime Spiral Sieve</h3></section>
+	<p>For a detailed discussion of efficient factorization and prime number sieving algorithms, as well as an in-depth analysis of	
+	the 8-chord progression and deterministic modulo 90 digital root dyad sequences underlying all factorizations employing this sieve, 
+	click here: <strong><a href="Factorization.html" target="_blank">Factorization and Prime Number Sieving Algorithms</a></strong>.</p>
+	<p>If you use Python (the computer programming language designed for the development of scientific, engineering and 
+	mathematics applications) and want to cut to the chase, check out the MIT licensed Python module dubbed "pyprimes." It's designed to speed test <em>non-probabilistic</em> prime number sieving algorithms (i.e., deterministic sieves that precisely account for <em>all</em> prime numbers within a given range). These include the Sieve of Eratosthenes, Wheel Factorization and the Prime Spiral Sieve (referred to by its alternative name, "Croft Spiral Sieve" or simply "Croft Spiral"), 
+	<a href="https://pypi.python.org/pypi/pyprimes/0.1.1a#downloads">here</a> or here at  <a href="https://code.google.com/archive/p/pyprimes/">code.google.com</a>. 
+	The programmer, we're pleased to report, rates the Prime Spiral Sieve "fastest/best" and recommends it as "the preferred way of generating 
+	prime numbers" compared to the several sieves tested.</p>
+	<hr><hr>
+	<section id="countingprimes"><h3>Counting Primes </h3></section>
+	<p>The Prime Spiral Sieve can be used to calculate the number of prime numbers within a stated range (from 0 to n, or &#960;(x) using the standard notation) with absolute precision, albeit in several unconventional steps. It does so by employing the four elementary operations of arithmetic: addition, subtraction, multiplication and division, and extracting one square root. You could say that this approach is more recipe than function, algorithm, or asymtotic analysis. Regardless, what makes this method novel is that it parses and gives the number of primes <em>without the need to identify any specific primes other than the first three</em>: <strong>2, 3, </strong>and <strong>5</strong>, i.e., there's no requirement for primality testing, per se. For an in depth exploration of this methodology, click here: <strong><a href="countingprimes.html" target="_blank">Prime Number Counting Methodology</a></strong></p>
+	<hr><hr>
+	<h3>Twin Primes</h3>
+	<p>The world of twin primes is truly magical. For a detailed discussion of the factorization algorithms and symmetry groups (permutating matrices, orthogonal Latin squares, palindromes, equilateral triangles, complex polygons, etc.) that ultimately determine the distribution of twin primes along three modulo 30 'channels' go to this page: <strong><a href="twinprimes.html">Twin Primes Demystified: Distribution Algorithms and Symmetries</a></strong>. </p>
+	<p>There you will be introduced to the beautiful 'Palindromagon' (pictured below), a complex polygon generated by tiered digital root dyad cycles central to the twin prime distribution channels (as well as modulo 90 factorization sequences). Its name comes from the fact that the triangulations generating it sum to a period-18 palindrome consisting of the six possible permutations of {3,6,9}, which in turn can be permutated to produce two 3 x 3 Latin squares with rows, columns and principal diagonals all summing to 18:</p>
+	<p><img src="Palindromagon.jpg" height=556 width=380 alt="Palindromagon"/></p>
+	<hr><hr>
+	<section id="primingthesquares"><h3>Distribution of Perfect Squares</h3></section>
+	<p>All perfect squares within our domain (numbers not divisible by 2, 3 or 5) possess a digital root of 1, 4 or 7 and are congruent to either {1} or {19} modulo 30. By definition, this includes the squares of all prime numbers greater than 5. We can easily explain this from a digital root perspective given that the digital roots of members of our domain are restricted to 1, 2, 4, 5, 7 or 8 (Numbers with digital root 3, 6, or 9 can't be members because they are divisible by 3.). Thus the digital root of squares is likewise restricted, as follows (and note the palindrome):</p>
+	<p style="margin:0px 5% 0px 5%;">
+	1 x 1 = 1<br>
+	2 x 2 = 4<br>
+	4 x 4 = 7<br>
+	5 x 5 = 7<br>
+	7 x 7 = 4<br>
+	8 x 8 = 1</p>
+	<p>By arithmetic law, perfect squares can only have terminating digits of 1, 4, 5, 6, 9 or 0. Only two of these final digits (1 and 9) apply to our domain, i.e., for numbers congruent to {1, 11, 19 or 29} modulo 30. In turn, numbers congruent to {11, 29} sequence digital roots 2, 5 or 8, and therefore &#8211; as we demonstrated above &#8211; there can be no perfect squares among them. And so it is that the distribution of squares is narrowed to numbers congruent to {1, 19} modulo 30, which is to say they distribute along two &#8211; and only two &#8211; radii of the Prime Spiral Sieve: 12&deg; (numbers congruent to {1} modulo 30) and 228&deg; (numbers congruent to {19} modulo 30). (This is also consistent with the fact that the <a href="https://en.wikipedia.org/wiki/Quadratic_residue">quadratic residues</a> for modulo 30 (making them congruent with perfect squares) are 1 and 19.)</p>
+	<p>[And it follows that all squares in this series distribute evenly to two of the three twin prime distribution channels, described above, negating a significant percentage of potential twin prime pairs.]</p>
+	<p>The matrix below illustrates 	the distribution of squares from 1*1 thru 59*59 (squares hi-lited in blue):</p>
+	<p><img src="Squares_Distribution.jpg" height=467 width=900 alt="Distribution of Squared Members of Domain"/></p>
+	<p>Summarizing the above relationships in mathematical terms (and in the knowledge that these modular relationships apply to the squares of all 
+	prime numbers &#8805; 7) we get:</p>
+	<p style="margin:0px 5% 0px 5%;">
+	for all n where n mod 30 = 1, n<sup>2</sup> mod 30 = 1<br>
+	for all n where n mod 30 = 29, n<sup>2</sup> mod 30 = 1<br>
+	for all n where n mod 30 = 11, n<sup>2</sup> mod 30 = 1<br>
+	for all n where n mod 30 = 19, n<sup>2</sup> mod 30 = 1</p>
+	<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+	<p style="margin:0px 5% 0px 5%;">
+	for all n where n mod 30 = 7, n<sup>2</sup> mod 30 = 19<br>
+	for all n where n mod 30 = 23, n<sup>2</sup> mod 30 = 19<br>
+	for all n where n mod 30 = 13, n<sup>2</sup> mod 30 = 19<br>
+	for all n where n mod 30 = 17, n<sup>2</sup> mod 30 = 19</p>
+	<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+	<p>When the digital root of perfect squares is sequenced within a modulo 30 x 3 = modulo 90 horizon, beautiful symmetries in the form of period-24 palindromes are revealed, which the author has documented on the <em>On-Line Encyclopedia of Integer Sequences</em> as <a href="https://oeis.org/A240924">Digital root of squares of numbers not divisible by 2, 3 or 5 (A24092)</a>:</p>
+	<p style="margin:0px 5% 0px 5%;">
+	1, 4, 4, 7, 1, 1, 7, 4, 7, 1, 7, 4, 4, 7, 1, 7, 4, 7, 1, 1, 7, 4, 4, 1</p>
+	<p>In the matrix pictured below, we list the first 24 elements of our domain, take their squares, calculate the modulo 90 congruence and digital roots of each square, and display the digital root factorization dyad for each square (and map their collective bilateral 9 sum symmetry):</p>
+	<p><img src="Squares_Digital_Root_Palindrome.jpg" height=950 width=720 alt="Perfect Squares Repeating Digital Root Palindrome"/></p>
+	<p>Here's one more modulo 90 spin on perfect squares. Parsing the squares by their mod 90 congruence reveals that there are 96 perfect squares generated with each 4 * 90 = 360 degree cycle, which distribute 16 squares to each of 6 mod 90 congruence sub-sets defined as n congruent to {1, 19, 31, 49, 61, 79} forming 4 bilateral 80 sums. Note that each of the 6 columns has 8 bilateral 360 sums, tor a total of 48 * 360 = 40 * 432 (much more on the significance of number 432, elsewhere on this site). Here's the graphic:</p>
+	<p><img src="Mod_30_Squares_Mod_90_360_Degrees.jpg" height=1200 width=600 alt="96 Perfect Squares per 4 x 90 = 360 Degree Cycle"/></p>
+	<p>Before leaving the subject of perfect squares, there's another hidden dimension of our domain worth noting involving multiples of 360, i.e., when framed as n &#8780; {1, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 49, 53 59, 61, 67, 71, 73, 77, 79, 83, 89} modulo 90, and taking 'bipolar' differentials of perfect squares, as follows:</p>
+	<p style="margin:0px 5% 0px 5%;">
+	(89<sup>2</sup> &minus; 1<sup>2</sup>) = 360 x 22<br>
+	(83<sup>2</sup> &minus; 7<sup>2</sup>) = 360 x 19<br>
+	(79<sup>2</sup> &minus; 11<sup>2</sup>) = 360 x 17<br>
+	(77<sup>2</sup> &minus; 13<sup>2</sup>) = 360 x 16<br>
+	(73<sup>2</sup> &minus; 17<sup>2</sup>) = 360 x 14<br>
+	(71<sup>2</sup> &minus; 19<sup>2</sup>) = 360 x 13<br>
+	(67<sup>2</sup> &minus; 23<sup>2</sup>) = 360 x 11<br>
+	(61<sup>2</sup> &minus; 29<sup>2</sup>) = 360 x 8<br>
+	(59<sup>2</sup> &minus; 31<sup>2</sup>) = 360 x 7<br>
+	(53<sup>2</sup> &minus; 37<sup>2</sup>) = 360 x 4<br>
+	(49<sup>2</sup> &minus; 41<sup>2</sup>) = 360 x 2<br>
+	(47<sup>2</sup> &minus; 43<sup>2</sup>) = 360 x 1</p>
+	<hr><hr>
+	<section id="alphatoomega"><h3>From Alpha to Omega</h3></section>
+	<p style="margin:0px 10% 0px 10%; font-size:14pt;">"Not every beautiful theory has a physical application, but <em>all</em> fundamental physical theories found so far&#8211;without exception&#8211;have a type of beauty or symmetry." &#8211; Michio Kaku, <em>The God Equation</em></p>
+	<p>The <a href="https://en.wikipedia.org/wiki/Ulam_spiral">Ulam Spiral</a> arrays prime numbers in fragmented spiral and diagonal formations. Quoting from  Wikipedia: "Since in the Ulam spiral adjacent diagonals are alternatively odd and even numbers, it is no surprise that 
+	all prime numbers lie in alternate diagonals ... What is startling is the tendency of prime numbers to lie on some diagonals more than 
+	others." From this one might deduce that the Ulam Spiral is very likely a scrambled version of the Prime Spiral Sieve as the latter 
+	demonstrates how all prime numbers (except 2, 3 and 5) are fundamentally arrayed along eight (and only eight) diagonals.</p>
+	<p>It would appear, circumstantially, that the Prime Spiral Sieve is mathematically harmonious and perhaps isomorphic with the most complex and visually arresting <a href="https://en.wikipedia.org/wiki/Lie_group">Lie group</a>, named <a href="https://en.wikipedia.org/wiki/File:E8PetrieFull.svg">E<sub>8</sub></a>, which&#8211;like the Prime Spiral Sieve&#8211;is 8-dimensional (E<sub>8</sub> is pictured below superimposed with a star polygon and the 8 radii of the modulo 30 factorization wheel). This group was recently <a href="https://www.scientificamerican.com/article.cfm?id=rummaging-for-a-final-theory">in the news</a> as possibly being a key to unifying theories in gravity and particle physics to create the proverbial "theory of everything." The number 30&#8211;integral to the Prime Spiral Sieve&#8211;is the <a href="https://en.wikipedia.org/wiki/Coxeter_group">Coxeter Group</a> number <em>h</em>, dual Coxeter number and the highest degree of fundamental invariance of E<sub>8</sub>. You'll note, looking at the graphical representation of E<sub>8</sub> below, that the perimeters of every one of its multiple concentric circles possesses 30 points. And, not surprisingly, E<sub>8</sub> has 2-, 3- and 5-torsion and its exponents are the co-primes up to 30, i.e., 1, 7, 11, 13, 17, 19, 23, and 29&#8211;numbers you're very familiar with if you've read to this point ... which brings us 
+	full circle &#927;:</p>
+	<figure>
+ 		<img src="E8StarPolygonMod30.jpg" height=500 width=500 alt="Graphic superimposes E8, star polygon and mod 30 factorization wheel radii"/>
+		<figcaption>
+		<p><strong>The Number 30 in Lie Group E<sub>8</sub></strong><br><small>This graphic superimposes images of the star 
+		polygon, modulo 30 wheel factorization radii and "E<sub>8</sub> graph of the Gosset 421 polytope as a 2-dimensional skew orthogonal projection 
+		inside Petrie polygon ... an emulation of the hand drawn original by Peter McMullen" licensed by Creative Commons; 
+		license terms <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">here</a>. (For 3-D version of this graphic step back three feet from the screen.)</small></p></figcaption></figure>
+		<p>We'll close with a graphic showing E<sub>24</sub> superimposed with the 24 radials of a modulo 90 factorization wheel and the 15 points of a 15-point star represented with red dots, each point separated by 24&deg; (and we see that <em>all nine</em> twin prime distribution channels are hit dead center). </p>
+		<p><img src="E24-Mod90-Superimposition.jpg" height=850 width=800 alt="E24-modulo90-factorization wheel-radii"/></p>
+		<p>Your feedback welcome! Email: <a href="mailto:gwc@hemiboso.com" target="_blank">gwc@hemiboso.com</a></p>
+		<small><a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" 
+	src="https://licensebuttons.net/l/by-sa/3.0/88x31.png" /></a><br />This work is licensed by its author Gary William Croft under a <a rel="license" 
+	href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</small>
+		<hr><hr>
+<h3>Site Map</h3>
+ <div id="pattern" class="pattern sitemap"><a href="https://www.primesdemystified.com/" id="home" class="menu-link active" >Prime Numbers Demystified by 8-Dimensional Algorithms</a></div>
+  <div id="menu" class="menu active" role="navigation">
+    <ul class="level-1">
+        <li><a href="https://www.primesdemystified.com/abouttheoriginator.html">About the Author</a></li> <!-- FILE -->
+        <li><a href="https://www.primesdemystified.com/siameseprimes.html">Finding Siamese Primes Using Modulo 30 Based Algorithm</a></li> <!-- FILE -->
+        <li><a href="https://www.primesdemystified.com/sophiegermainprimes.html">Finding Sophie Germain Primes Using Modulo 30 Based Algorithm</a></li> <!-- FILE -->
+        <li><a href="https://www.primesdemystified.com/magicmatrix.html">Magic Mirror Matrix Exposes Perfect Symmetry Related to 1st 1000 Prime Numbers</a></li> <!-- FILE -->
+        <li><a href="https://www.primesdemystified.com/thirty.html">Number 30: Power Integer. Comprehensive Review</a></li> <!-- FILE -->
+        <li><a href="https://www.primesdemystified.com/ChordFactorizationMatrix.html">Prime Numbers: 8-Chord Factorization Matrix</a></li> <!-- FILE -->
+        <li><a href="https://www.primesdemystified.com/prafactorization.html">Prime Number Root Angle Factorization</a></li> <!-- FILE -->
+        <li><a href="https://www.primesdemystified.com/Factorization.html">Prime Spiral Sieve Factorization and Sieving Algorithms</a></li> <!-- FILE -->
+		 <li><a href="https://www.primesdemystified.com/countingprimes.html">Prime Number Counting Methodology</a></li> <!-- FILE -->
+        <li><a href="https://www.primesdemystified.com/twinprimes.html">Twin Prime Distribution Demystified</a></li> <!-- FILE -->
+		<li><a href="https://www.primesdemystified.com/twinprimesdigitalrootproof.html">Proof by Construction for the Digital Root Sequencing of Twin Primes</a></li>
+		<li><a href="https://www.primesdemystified.com/formulae.html">Cumulative Sum and Indexing Formulae</a></li>
+		<li><a href="https://www.primesdemystified.com/First1000Primes.html">The Mystery of the First 1000 Prime Numbers</a></li><!-- FILE -->
+    </ul><br><br></div>
+	<span id="cdSiteSeal2"><script src="//tracedseals.starfieldtech.com/siteseal/get?scriptId=cdSiteSeal2&amp;cdSealType=Seal2&amp;sealId=55e4ye7y7mb73944551ad196abeb3kekn3ay7mb7355e4ye756bbcb5f81d5af04"></script></span></div>
+	<script src="https://cdn.ywxi.net/js/1.js" async></script>
+  </body>
+</html>

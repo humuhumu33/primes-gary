@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5756060-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-5756060-3');
+</script>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="created" content="Thu, 02 Jun 2011 21:01:49 GMT">
+    <meta name="description" content="Siamese Primes: Modulo 30 Analysis">
+    <meta name="keywords" content="Sophie Germain Primes, Sophie Germain, sophie germain primes, prime numbers, modulo 30, mod 30, Prime Spiral Sieve">
+    <title>Finding Sophie Germain Primes Using Modulo 30 Based Algorithm</title>
+    
+    <!--[if IE]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	
+	<style type="text/css">
+p.small
+{
+line-height: 0.5
+}
+p.big
+{
+line-height: 1.4
+}
+</style>
+ 
+  </head>
+  
+  <body>
+
+  <span style="font-family: verdana,arial,helvetica; font-weight: 500; color: #000000">
+
+	<blockquote>
+	<h2>Sophie Germain Primes: both p and 2p+1 are prime</h2>
+	<h4>This is an example of how prime number patterns can be deciphered using the <a href="https://www.primesdemystified.com" target="_blank"><b>Prime Spiral Sieve</b></a>  
+	as an analytical tool; in this case Sophie Germain Primes.</h4>
+	<hr size="8" color="#D3D3D3">
+	<font size="3">
+	<p class="big">We start the analysis with the knowledge that all prime numbers (p), with the exception of 2, 3 and 5 are 
+	p &#8801; 1, 7, 11, 13, 17, 19, 23 or 29  (modulo 30), the set of which we will dub <b>mod30pr</b>, for modulo 30 prime roots. 
+	It follows that both p and 2p+1 must be mod30pr. Doing a mod 30 analysis of all the possible combinations of this pattern, 
+	only three give results for p and 2p+1 = mod30pr: 11,  23 and 29 (all three of which are themselves Sophie Germain Primes). 
+	Thus p for all primes falling into this pattern must be p &#8801; 11, 23 or 29 (mod 30). Therefore, if you're seeking these particular 
+	primes you can drastically narrow your search. </p>
+  	<p class="big">For example, starting with the <b>mod30pr,11</b> series (11, 41, 71, 101, 131, 161, 191 ...n) we get:</p>
+  <blockquote>
+  <p class="big">11 and 2&#8727;11+1 compute to the primes 11 and 23 (making 11 a Sophie Germain Prime)</p>
+  <p class="big">41 and 2&#8727;41+1 compute to the primes 41 and 83 (making 41 a Sophie Germain Prime)</p>
+  <p class="big">71 and 2&#8727;71+1 compute to 71, a prime, and 143 (the first composite number in this sequence, thus disqualifying 
+  71 as a Sophie Germain Prime)</p>
+  <p class="big"> ... and then on to 101, 131(SGP), 161, 191(SGP), 221, 251(SGP), 281(SGP), 311, etc... n</p>
+</blockquote>
+ <p class="big">Moving on to <b>mod30pr,23</b> we get:</p>
+ <blockquote>
+ <p class="big">23(SGP), 53(SGP), 83(SGP), 113(SGP), 143, 173(SGP), 203, 233(SGP), etc.</p>
+</blockquote>
+  <p class="big">Then, lastly, we move on to <b>mod30pr,29</b>:</p>
+  <blockquote><p class="big">29(SGP), 59(SGP), 89(SGP), 109, 149, 179(SGP), 209, 239(SGP), 269, 299, etc... n </p>
+  </blockquote>
+  <p class="big">As you can see, it's a hit-and-miss proposition; upon factorization, the underlying pattern&#8211;though its form persists as a repeating 
+  <i>potential</i> to be filled with primes to infinity&#8211;gets broken with increasing frequency as we move down the number line. This 
+  statement can be applied to virtually every repeating pattern involving prime numbers.</p>
+  <p class="big"><a href="https://www.primesdemystified.com">Return to Home Page</a></p>
+  
+</blockquote>
+
+ </span>
+
+  </body>
+
+</html>

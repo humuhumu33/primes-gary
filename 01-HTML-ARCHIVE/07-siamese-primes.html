@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5756060-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-5756060-3');
+</script>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="created" content="Thu, 02 Jun 2011 21:01:49 GMT">
+    <meta name="description" content="Siamese Primes. Modulo 30 Analysis.">
+    <meta name="keywords" content="Siamese Primes, siamese primes, Siamese twin primes, prime numbers, modulo 30, mod 30, Prime Spiral Sieve">
+    <title>Finding Siamese Primes Using Modulo 30 Based Algorithm</title>
+    <!--[if IE]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<style type="text/css">
+p.small
+{
+line-height: 0.5
+}
+p.big
+{
+line-height: 1.4
+}
+</style>
+  </head>
+  <body>
+  <span style="font-family: verdana,arial,helvetica; font-weight: 500; color: #000000">
+	<blockquote>
+	<h2>Siamese Primes: n<sup>2</sup> -2 & n<sup>2</sup> +2</h2>
+	<h4>This is an example of how prime number patterns can be deciphered using the <a href="https://www.primesdemystified.com" target="_blank"><b>Prime Spiral Sieve</b></a>  
+	as an analytical tool; in this case Siamese Primes.</h4>
+	<hr size="8" color="#D3D3D3">
+	<p class="big">Given the fact that all potential prime numbers (p) > 5 are p &#8801; 1, 7, 11, 13, 17, 19, 23 or 29 (modulo 30) [dubbed "prime roots," for convenience], 
+	one need simply test all odd numbers in the intervals between the prime roots (3, 5, 9, 15, 21, 25 and 27) against the formula for Siamese Primes 
+	(n<sup>2</sup> -2 & n<sup>2</sup> +2), and in turn test these results modulo 30 to see which ones possess prime roots, i.e., are potentially prime. Computing 
+	accordingly, the following numbers test positive for prime roots:</p>
+	<blockquote>
+	n &#8801; 3 (modulo 30) (generates mod30, 7 & 11)<br>
+	n &#8801; 9 (modulo 30) (generates mod30, 19 & 23)<br>
+	n &#8801; 15 (modulo 30) (generates mod30, 13 & 17)<br>
+	n &#8801; 21 (modulo 30) (generates mod30, 19 & 23)<br>
+	n &#8801; 27 (modulo 30) (generates mod30, 7 & 11)<br>
+		</blockquote>
+	<p class="big">Reconfiguring the above into a number sequence for potential values of n we get: 3 {+6+6+6+6+6} {repeat ... &#8734;} or, simplifying, 
+	<a href="https://oeis.org/A016945" target="_blank">6n+3</a>. 
+	The	matrix below lists the first 40 integers in the sequence:
+	<table border="4" bordercolor="black" cellpadding="3" width="50%" height="10" align="center">
+	<div style="text-align: center;">
+	<h3>Values for n = Potential Generators of Siamese Primes</h3>
+	<caption><i>6n+3</i></caption>
+	<tr>
+	<font size="2">
+	<td width= "40" align="center" bgcolor="#98FB98"><b>3</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>9</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>15</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>21</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>27</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	</tr>
+	<tr>
+	<font size="2">
+	<td width= "40" align="center" bgcolor="#98FB98"><b>33</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>39</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>45</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>51</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>57</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	</tr>
+	<tr>
+	<font size="2">
+	<td width= "40" align="center" bgcolor="#98FB98"><b>63</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>69</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>75</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>81</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>87</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	</tr>
+	<tr>
+	<font size="2">
+	<td width= "40" align="center" bgcolor="#98FB98"><b>93</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>99</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>105</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>111</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>117</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	</tr>
+	<tr>
+	<font size="2">
+	<td width= "40" align="center" bgcolor="#98FB98"><b>123</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>129</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>135</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>141</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>147</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	</tr>
+	<tr>
+	<font size="2">
+	<td width= "40" align="center" bgcolor="#98FB98"><b>153</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>159</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>165</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>171</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>177</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	</tr>
+	<tr>
+	<font size="2">
+	<td width= "40" align="center" bgcolor="#98FB98"><b>183</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>189</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>195</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>201</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>207</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	</tr>
+	<tr>
+	<font size="2">
+	<td width= "40" align="center" bgcolor="#98FB98"><b>213</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>219</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>225</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>231</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	<td width= "40" align="center" bgcolor="#98FB98"><b>237</b></td>
+	<td width= "40" align="center" bgcolor="#FAFAD2"><b>+6</b></td>
+	</tr>
+	</table>
+	</p>
+	<font size="3">
+	<p class="big">In the knowledge that all potential prime numbers stair-step in intervals of 30, one need simply take 
+	each root value for n (3, 9, 15, 21 & 27) and repeatedly add 30 (i.e., n + 30; n + 60; n + 90 ...) then test the results for 
+	primality as shown in the matrix below, or, alternatively, starting with n = 0 test every 6n+3, as sequenced in the matrix above. 
+	Doing so yields results consistent with all n<sup>2</sup> -2 & n<sup>2</sup> +2 = Siamese Primes listed by the 
+	<a href="https://oeis.org/A108701" target="_blank"><b>OEIS Foundation</b></a>, with values of n ranging from 3 to 4305. 
+	[Note: Of these the author contributed n = 3621; n = 3807; and n = 4305, which he found readily employing this method.] 
+	Also shown below are the modulo 30 results for all the Siamese Prime pairs themselves.</p>
+	<table border="4" cellpadding="1" bordercolor="black" width="70%" height="25" align="center">
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="87CEEB"><b>Root 3</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup></b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup> -2</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Prime?</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>mod30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup> +2</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Prime?</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>mod30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Siamese?</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>n = 3</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>9</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>n +30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>33</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1089</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1087</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1091</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>63</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3969</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3967</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3971</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>93</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>8649</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>8647</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>8651</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>123</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>15129</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>15127</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td aligh="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>15131</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>test +30...n</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>273</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>74529</b></td>
+	<td aligh="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>74527</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>74531</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>303</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>91809</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>91807</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td aligh="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>91811</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>513</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>263169</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>263167</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>263171</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>573</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>328329</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>328327</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>328331</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1113</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1238769</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1238767</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1238771</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1143</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1306449</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1306447</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1306451</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1233</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1520289</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1520287</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1520291</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1563</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2442969</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2442967</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2442971</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1953</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3814209</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3814207</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3814211</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2133</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>4549689</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>4549687</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>4549691</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2283</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>5212089</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>5212087</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>5212091</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3093</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>9566649</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>9566647</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>9566651</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3453</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11923209</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11923207</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11923211</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	</table><br><br>
+	<table border="4" cellpadding="1" bordercolor="black" width="70%" height="25" align="center">
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="87CEEB"><b>Root 9</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup></b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup> -2</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Prime?</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>mod30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup> +2</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Prime?</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>mod30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Siamese?</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>n = 9</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>9</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>81</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>79</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>83</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>n +30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>39</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1521</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1519</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1523</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>69</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>4761</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>4759</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>4763</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>99</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>9801</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>9799</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>9803</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>129</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>16641</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>16639</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>16643</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>test +30...n</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>309</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>95481</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>95479</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>95483</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>429</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>184041</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>184039</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>184043</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>609</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>370881</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>370879</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>370883</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1239</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1535121</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1535119</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1535123</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1749</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3059001</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3058999</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3059003</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1839</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3381921</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3381919</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3381923</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2589</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>6702921</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>6702919</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>6702923</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3549</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>12595401</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>12595399</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>12595403</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	</table><br><br>
+	 <table border="4" cellpadding="1" bordercolor="black" &nbsp; width="70%" height="25" align="center">
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="87CEEB"><b>Root 15</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup></b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup> -2</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Prime?</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>mod30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup> +2</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Prime?</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>mod30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Siamese?</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>n = 15</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>15</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>225</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>223</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>227</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>17</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>n +30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>45</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2025</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2023</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2027</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>17</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>75</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>5625</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>5623</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>5627</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>17</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>105</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11025</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11023</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11027</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>17</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>135</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>18225</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>18223</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>18227</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>17</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>test +30...n</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1035</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1071225</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1071223</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1071227</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>17</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2715</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7371225</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7371223</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7371227</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>17</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2955</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>8732025</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>8732023</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>8732027</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>17</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3555</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>12638025</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>12638023</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>12638027</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>17</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>4305</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>18533025</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>18533023</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>18533027</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>17</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	</table><br><br>
+	 <table border="4" cellpadding="1" bordercolor="black" width="70%" height="25" align="center">
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="87CEEB"><b>Root 21</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup></b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup> -2</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Prime?</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>mod30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup> +2</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Prime?</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>mod30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Siamese?</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>n = 21</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>21</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>441</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>439</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>443</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>n +30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>51</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2601</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2599</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2603</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>81</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>6561</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>6559</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>6563</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>111</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>12321</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>12319</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>12323</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>141</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19881</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19879</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19883</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>test +30...n</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>441</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>194481</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>194479</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>194483</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>561</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>314721</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>314719</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>314723</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1071</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1147041</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1147039</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1147043</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1311</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1718721</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1718719</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1718723</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1611</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2595321</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2595319</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2595323</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2211</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>4888521</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>4888519</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>4888523</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2721</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7403841</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7403839</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7403843</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3081</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>9492561</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>9492559</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>9492563</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3621</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13111641</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13111639</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>19</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13111643</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>23</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</tr>
+	</table><br><br>
+	 <table border="4" cellpadding="1" bordercolor="black" width="70%" height="25" align="center">
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="87CEEB"><b>Root 27</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup></b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup> -2</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Prime?</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>mod30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>n<sup>2</sup> +2</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Prime?</b></td>
+	<td align="center" bgcolor="FAFAD2"><b>mod30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="FAFAD2"><b>Siamese?</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>n = 27</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>27</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>729</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>727</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>731</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>n +30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>57</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3249</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3247</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3251</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>87</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7569</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7567</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7571</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>117</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13689</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13687</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>13691</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>+30</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>147</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>21609</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>21607</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>no</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>21611</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>No</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>test +30...n</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>&darr;</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>237</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>56169</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>56167</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>56171</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	<tr>
+	<font size="3">	
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>387</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>149769</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>149767</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>149771</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>447</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>199809</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>199807</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>199811</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>807</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>651249</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>651247</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>651251</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>897</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>804609</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>804607</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>804611</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1617</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2614689</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2614687</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>2614691</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1737</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3017169</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3017167</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3017171</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>1827</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3337929</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3337927</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3337931</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	<tr>
+	<font size="3">
+	<td align="center" bgcolor="FAFAD2"><b>&darr;</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>3807</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>14493249</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>14493247</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>7</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="F8F8FF"><b>14493251</b></td>
+	<td align="center" bgcolor="98FB98"><b>yes</b></td>
+	<td align="center" bgcolor="F8F8FF"><b>11</b></td>
+	<td align="center" bgcolor="000000"><b></b></td>
+	<td align="center" bgcolor="98FB98"><b>Yes</b></td>
+	</table><br><br>
+	</span>
+  </body>
+</html>

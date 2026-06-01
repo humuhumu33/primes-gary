@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5756060-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-5756060-3');
+</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="index, follow"/>
+	<meta name="author" content="Gary William Croft"/>
+    <meta name="description" content="Prime Spiral Sieve Cumulative Sum and Indexing Formulae"/>
+    <meta name="keywords" content="factorization, modulo 30, modulo 90, digital root, cumulative sums"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Prime Spiral Sieve Supporting Formulae</title>
+	<base target="_blank">
+</head>
+<body style="background-color:#F2F2F2">
+ <div style="text-align: center; font-family: Merriweather, Arial, Helvetica, Georgia, Tahoma, cambria, verdana; margin:0px 11% 0px 11%;">
+   <h1>Cumulative Sum and Indexing Formulae</h1>
+   <h2>Used in Conjunction with Prime Spiral Sieve Algorithms</h2>
+   <img src="Formulae_Header.jpg" height="250" width="250" alt="Formulae page header"/>
+	 <div style="font-family: Merriweather, Arial, Helvetica, cambria, arial, verdana; font-size:1.32em;">
+	<p>This work is licensed by its author, Gary William Croft, under a <br><a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">Creative 
+	Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+	<p><strong>Return to www.primesdemystified.com <a href="https://www.primesdemystified.com">Home Page</a></strong></p>
+	<p style="margin:0px 10% 0px 10%;">"This sieve is the source of two efficient prime number factorization algorithms and completely deconstructs the twin prime sequence." &#8211; Philip Gervasse Jackson, citing the Prime Spiral Sieve in <em>Simplicity Instinct: Why Prime Numbers are Elusive!</em></p></div></div>
+	<div style="text-align: left; font-family: Merriweather, Arial, Helvetica, Tahoma, cambria, verdana; font-size:1.3em; line-height: 35px; margin:0px 11% 0px 11%;">
+	<hr><hr>
+	<h2>The Four Cumulative Sum Formulae:</h2>
+	<p>While rolling stones may gather no moss, the same can't be said when it comes to 'rolling up' numbers. These formulae expose the fact that natural numbers can possess various 'weights and measures.' They are essentially partial sum and piecewise counting functions in simplified form. They are especially powerful when used in combination to expose hidden patternization and structure.</p>
+	<p style="margin:0px 2% 0px 2%;"><strong>1. Cumulative Sums (k) for Natural Numbers (n) 1, 2, 3, ... </strong></p>
+	<p style="margin:0px 5% 0px 5%;"><strong>k = (n + n<sup>2</sup>)/2</strong>. <br>[Note that the cumulative sums this formula generates are the triangular numbers, viz. 1, 3, 6, 10, 15, 21, 28, ... (ref: <a href="https://oeis.org/A000217">oeis.org/A000217: a(n) = n(n+1)/2 ...</a>)]</p>
+	<p style="margin:0px 6% 0px 6%;"><strong>Examples:</strong></p>
+	<p style="margin:0px 7% 0px 7%;"><strong>n = 89</strong> (the 24th prime): &nbsp;&nbsp;k = (89 + 89<sup>2</sup>)/2 = 4,005.<br>
+	<strong>n = 109</strong> (the 29th prime): k = (109 + 109<sup>2</sup>)/2 = 5,995 (and, interestingly, 4,005 + 5,995 = 10,000).<br>
+	<strong>n = 7919</strong> (the 1000th prime): k = (7919 + 7919<sup>2</sup>)/2 = 31,359,240 (and note that 31,359,240 = 7919 x (109<sup>2</sup> &minus; 89<sup>2</sup>), and that the Fibonacci sequence can be extracted from the decimal expansions of both 1/89 and 1/109).</p><br>
+	<p style="margin:0px 7% 0px 7%;">Here's an example demonstrating how this formula, combined with others on this page, can be employed to expose deep connections:</p><br>
+	<p style="margin:0px 5% 0px 5%;"><img src="89_109_496_8128_triangulations.jpg"height="406" width="800" alt="Prime, tringular and perfect numbers in concert"/></p>
+	<hr>
+	<p style="margin:0px 2% 0px 2%;"><strong>2. Cumulative <i>Digital Root</i> (dr) Sums (k) for Natural Numbers (n) 1, 2, 3, ... </strong>(parsed by digital roots 1-9)</p>
+	<p style="margin:0px 5% 0px 5%;"><strong>For dr(n) = 1</strong>: k = 5n&minus;4; (e.g., n = 37; k = 5 * 37&minus;4 = 181).<br>
+	<strong>For dr(n) = 2</strong>: k = 5n&minus;7; (e.g., n = 29; k = 5 * 29&minus;7 = 138).<br>
+	<strong>For dr(n) = 3</strong>: k = 5n&minus;9; (e.g., n = 30; k = 5 * 30&minus;9 = 141).<br>
+	<strong>For dr(n) = 4</strong>: k = 5n&minus;10; (e.g., n = 67; k = 5 * 67&minus;10 = 325).<br>
+	<strong>For dr(n) = 5</strong>: k = 5n&minus;10; (e.g., n = 23; k = 5 * 23&minus;10 = 105).<br>
+	<strong>For dr(n) = 6</strong>: k = 5n&minus;9; (e.g., n = 24; k = 5 * 24&minus;9 = 111).<br>
+	<strong>For dr(n) = 7</strong>: k = 5n&minus;7; (e.g., n = 16; k = 5 * 16&minus;7 = 73).<br>
+	<strong>For dr(n) = 8</strong>: k = 5n&minus;4; (e.g., n = 17; k = 5 * 17&minus;4 = 81).<br>
+	<strong>For dr(n) = 9</strong>: k = 5n&minus;0; (e.g., n = 72; k = 5 * 72&minus;0 = 360.</p>
+	<p></p>
+	<p style="margin:0px 5% 0px 5%;">The examples above were taken from the section of spreadsheet cut-and-pasted below covering the range of natural numbers 1 thru 72 (and associated cumulative digital root 1 thru 360). Prime numbers are hi-lited in yellow.</p>
+	<p style="margin:0px 5% 0px 5%;">
+	<img src="Cumulative_Digital_Root.jpg" height="421" width="700" alt="Cumulative digital root equations spreadsheet"/></p>
+	<p style="margin:0px 5% 0px 5%;">Based on this analysis, it can easily be proven that, with the exception of the first prime (1+2=<strong>3</strong>) all primes in this sequence are congruent to {1 or 73} modulo 90, and therefore all, with the exception of number 3, have a digital root of one (1). For example, in the range 1 thru 7920 there are 345 such 'cumulative digital root' primes (and of these, 171 are n &#8780;  {1} mod 90 and 173 are n &#8780;  {73} mod 90. Number 3 is the only outlier).  And we note that all but the first perfect number (6) are congruent to either {28} or {46} modulo 90, thus: 28, 8128, 127438691328, and 2305843008139952128 are congruent to {28} modulo 90, while
+	496, 33550336, and 8589869056 are congruent to {46} modulo 90.</p><br>
+	<p style="margin:0px 5% 0px 5%;">Further review of this sequence leads us to the conjecture that this sequence contains <em>all</em> perfect numbers. We've confirmed that it contains the first eight of them (see details, below).</p>
+	<p style="margin:0px 5% 0px 5%;"><img src="Perfect_Numbers_Sum_of_Digital_Roots_N123.jpg" height="552" width="655" alt="Perfect numbers as sum of digital roots N123"/></p>
+	<hr>
+	<p style="margin:0px 2% 0px 2%;"><strong><strong>3. Cumulative Sums (k) for n &#8780; {1, 7, 11, 13, 17, 19, 23, 29} Modulo 30</strong> (parsed modulo 30)</strong></p>
+	<p style="margin:0px 5% 0px 5%;">Referencing the right-hand (pink) column:</p> 
+	<p style="margin:0px 7% 0px 7%;"><strong>Input = n</strong> &#8780; {1, 7, 11, 13, 17, 19, 23, 29} Modulo 30;<br>
+	<strong>Output (k)</strong> = Cumulative Sum (1 &rarr; n):</p>
+	<p></p>
+	<p style="margin:0px 5% 0px 5%;"><img src="Cum_Sum_n_not_div_235.jpg" height=1004 width=650 alt="Cumulative sum n not divisible by 2, 3, or 5, ... and conversion"/></p>
+	<hr>
+	<p style="margin:0px 2% 0px 2%;"><strong>4. Cumulative <em>Digital Root</em> Sums (k) for n &#8780; {1, 7, 11, 13, 17, 19, 23, 29} Modulo 30</strong> (parsed modulo 90)</p>
+	<p></p>
+	<p style="margin:0px 5% 0px 5%;"><img src="Formula_cumdr_n_not_div_2-3-5.jpg" height="533" width="800" alt="Cumulative digital root formula for n not divisible by 2, 3, or 5"/></p>
+	<p></p>
+	<h2>The Two Indexing Fomulae:</h2>
+	<p style="margin:0px 2% 0px 2%;"> &nbsp;<strong>1. Input</strong> = natural numbers 1, 2, 3, ..., i.e., Index #;<br>&nbsp; &nbsp; &nbsp;<strong>Output</strong> = n congruent to {1, 7, 11, 13, 17, 19, 23, 29} Modulo 30.</p>
+	<p>Parsing by modulo 8 congruence allows us to input index numbers and output the numbers not divisible by 2, 3, or 5 the inputs reference. The 8 negative adjustments per cycle form four bilateral pairs summing to 3.75, and 4 * 3.75 = 15. [Note that the ratio N = {0, 1, 2, 3, ...} to n not divisible by 2, 3, or 5 converges ascendantly to 30/8 = 3.75. For example 89/24 (24 being 89's index number, and thus the ratio's denominator) = 3.708333... while 7919/2112 (2112 = 7919's index number) = 3.7495265151.., etc. Reverse the ratio and the series converges descendently to 8/30 = .2666...].
+	<p style="margin:0px 5% 0px 5%;">
+	n &#8780; {1} mod 8: k = n * 30/8 &minus; 2.75 = n &#8780;  &nbsp;{1} &nbsp;mod 30<br>
+	n &#8780; {2} mod 8: k = n * 30/8 &minus; 0.50 = n &#8780;  &nbsp;{7} &nbsp;mod 30<br>
+	n &#8780; {3} mod 8: k = n * 30/8 &minus; 0.25 = n &#8780;  {11} mod 30<br>
+	n &#8780; {4} mod 8: k = n * 30/8 &minus; 2.00 = n &#8780;  {13} mod 30<br>
+	n &#8780; {5} mod 8: k = n * 30/8 &minus; 1.75 = n &#8780;  {17} mod 30<br>
+	n &#8780; {6} mod 8: k = n * 30/8 &minus; 3.50 = n &#8780;  {19} mod 30<br>
+	n &#8780; {7} mod 8: k = n * 30/8 &minus; 3.25 = n &#8780;  {23} mod 30<br>
+	n &#8780; {0} mod 8: k = n * 30/8 &minus; 1.00 = n &#8780;  {29} mod 30</p>
+	<p>Here are the first 24 outputs of the stair-stepping formula:</p>
+	<p style="margin:0px 5% 0px 5%;">
+	k = 1 * 30/8 &minus; 2.75 = <strong>1</strong><br>
+	k = 2 * 30/8 &minus; 0.50 = <strong>7</strong><br>
+	k = 3 * 30/8 &minus; 0.25 = <strong>11</strong><br>
+	k = 4 * 30/8 &minus; 2.00 = <strong>13</strong><br><br>
+	k = 5 * 30/8 &minus; 1.75 = <strong>17</strong><br>
+	k = 6 * 30/8 &minus; 3.50 = <strong>19</strong><br>
+	k = 7 * 30/8 &minus; 3.25 = <strong>23</strong><br>
+	k = 8 * 30/8 &minus; 1.00 = <strong>29</strong><br><br>
+	k = &nbsp;&nbsp;9 * 30/8 &minus; 2.75 = <strong>31</strong><br>
+	k = 10 * 30/8 &minus; 0.50 = <strong>37</strong><br>
+	k = 11 * 30/8 &minus; 0.25 = <strong>41</strong><br>
+	k = 12 * 30/8 &minus; 2.00 = <strong>43</strong><br><br>
+	k = 13 * 30/8 &minus; 1.75 = <strong>47</strong><br>
+	k = 14 * 30/8 &minus; 3.50 = <strong>49</strong><br>
+	k = 15 * 30/8 &minus; 3.25 = <strong>53</strong><br>
+	k = 16 * 30/8 &minus; 1.00 = <strong>59</strong><br><br>
+	k = 17 * 30/8 &minus; 2.75 = <strong>61</strong><br>
+	k = 18 * 30/8 &minus; 0.50 = <strong>67</strong><br>
+	k = 19 * 30/8 &minus; 0.25 = <strong>71</strong><br>
+	k = 20 * 30/8 &minus; 2.00 = <strong>73</strong><br><br>
+	k = 21 * 30/8 &minus; 1.75 = <strong>77</strong><br>
+	k = 22 * 30/8 &minus; 3.50 = <strong>79</strong><br>
+	k = 23 * 30/8 &minus; 3.25 = <strong>83</strong><br>
+	k = 24 * 30/8 &minus; 1.00 = <strong>89</strong></p>
+	<p>Here's an example using these indexing formulae that exposes a deep connection between the Fibonacci sequence and natural numbers not divisible by 2, 3, or 5. This sequence is interesting regardless of the primality of the indexed numbers, given the beauty of the progression itself.</p>
+	<p style="margin:0px 5% 0px 5%;">Fibo digit string ... Fibo string Indexed to N not divisible 2, 3, 5 (primality).<br>
+	1 ... 1.<br>
+	11 ... 41 (prime).<br>
+	112 ... 419 (prime).<br>
+	1123 ... 4211 (prime).<br>
+	11235 ... 42131 (prime).<br>
+	112358 ... 421339 (prime).<br>
+	11235813 ... 42134297 (prime).<br>
+	1123581321 ... 4213429951 (composite).<br>
+	112358132134 ... 421342995499 (composite).<br>
+	11235813213455 ... 42134299550453 (composite).<br>
+	1123581321345589 ... 4213429955045957 (composite).<br></p>
+	<hr>
+	<p style="margin:0px 2% 0px 2%;"> &nbsp;<strong>2. Input</strong> = n &#8780; {1, 7, 11, 13, 17, 19, 23, 29} Modulo 30; <br>&nbsp; &nbsp; &nbsp;<strong>Output</strong> = natural numbers 1, 2, 3, ..., i.e., Index # of Input.<br></p>
+	<p>For these formulae, reference the left-hand (green) column of the graphic for <strong>#3 of the four Cumulative Sum Formulae</strong>, above.</p>
+	<h2>Examples:</h2>
+	<p>Here are several examples employing the above formulae. The roles played by these particular numbers in our 'system of thought' have been discussed at various points throughout this site.</p>
+	<p><img src="Formulae_Examples.jpg" height="743" width="691" alt="Examples of Formulae Under Discussion"/></p>
+	<p>We end this section with an interesting way to generate a string of reciprocals for n congruent to {29} modulo 30 employing a few of the above formulae, where:</p>
+	<p style="margin:0px 2% 0px 2%;"><strong>k = index # for n ≡ {29} modulo 30</strong> as a member of n ≡ {1,7,11,13,17,19,23,29} mod 30 (i.e., n not divisible by 2, 3, or 5).<br>
+	30/8 = ratio N = {0, 1, 2, 3, ...} to n not divisible by 2, 3, or 5.<br><br>
+	<strong>k/n x 30/8&minus;1 = 1/n </strong>(i.e., n's reciprocal).</p>
+	<p></p>
+	<p style="margin:0px 3% 0px 3%;">
+	Examples; Four primes ≡ {29} mod 30:</p>
+	<p style="margin:0px 4% 0px 4%;">&nbsp;&nbsp; 8/29 x 30/8&minus;1 = 1/29.<br>
+	16/59 x 30/8&minus;1 = 1/59.<br>
+	24/89 x 30/8&minus;1 = 1/89.<br>
+	2112/7919 x 30/8&minus;1 = 1/7919.</p>
+	<p>The explanation for this becomes evident when we examine the formula for calculating index # (k) of n ≡ {29} mod 30:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>k = (n+1) x 8/30.</strong></p>
+	<hr><hr>
+	<p><strong>Return to www.primesdemystified.com <a href="https://www.primesdemystified.com">Home Page</a></strong></p>
+	<p>Your feedback welcome! Email: <a href="mailto:gwc@hemiboso.com" target="_blank">gwc@hemiboso.com</a></p></div>
+	<span id="cdSiteSeal2"><script src="//tracedseals.starfieldtech.com/siteseal/get?scriptId=cdSiteSeal2&amp;cdSealType=Seal2&amp;sealId=55e4ye7y7mb73944551ad196abeb3kekn3ay7mb7355e4ye756bbcb5f81d5af04"></script></span>
+	<script src="https://cdn.ywxi.net/js/1.js" async></script>
+  </body>
+</html>
